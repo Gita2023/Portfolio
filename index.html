@@ -319,6 +319,12 @@
             grid-column: 1 / -1;
         }
 
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -598,33 +604,20 @@
         <div class="contact-info">
             <p>Have a data challenge? Reach out to discuss how I can transform your numbers into actionable insights.</p>
             
-            <!-- Contact Form with Netlify -->
-            <form 
-                class="contact-form" 
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
-                data-netlify-honeypot="bot-field"
-                action="/thank-you"
-            >
-                <!-- Hidden field for Netlify -->
-                <input type="hidden" name="form-name" value="contact">
-                <p hidden>
-                    <label>Don’t fill this out: <input name="bot-field"></label>
-                </p>
-                
+            <!-- Enhanced Contact Form with Netlify -->
+            <form class="contact-form" name="contact" method="POST" netlify>
                 <div class="form-grid">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <label>Name <input type="text" name="name" required></label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <label>Email <input type="email" name="email" required></label>
                     </div>
                     <div class="form-group full-width">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <label>Subject <input type="text" name="subject" required></label>
                     </div>
                     <div class="form-group full-width">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <label>Message <textarea name="message" rows="5" required></textarea></label>
                     </div>
                     <div class="form-group full-width">
                         <button type="submit" class="submit-btn">Send Message
