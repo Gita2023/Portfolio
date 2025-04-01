@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ormita - Data Analytics Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00ff88;
+            --card-bg: #161616;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 5% 0;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 5%;
+            background: #141414;
+            text-align: center;
+        }
+
+        .about-heading {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #ccc;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            direction: ltr;
+        }
+
+        .about-text.arabic {
+            direction: rtl;
+            color: #ddd;
+        }
+
+        .text-divider {
+            height: 2rem;
+            width: 100px;
+            margin: 2rem auto;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.7;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 8rem 5%;
+        }
+
+        .category-heading {
+            font-size: 2rem;
+            margin: 4rem 0 2rem;
+            padding-left: 5%;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            loading: lazy;
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay span {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            color: var(--accent-color);
+            font-size: 0.875rem;
+        }
+
+        /* View All Button */
+        .view-all-projects {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .view-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .view-all-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-heading {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.1);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #888;
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #00e077;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .send-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 5rem 5% 0;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .about {
+                padding: 5rem 5%;
+            }
+
+            .about-heading {
+                font-size: 2rem;
+            }
+
+            .about-text {
+                font-size: 0.9rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-heading {
+                font-size: 2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .submit-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .social-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-logo">ORMITA</div>
+        <div class="nav-links">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="hamburger">☰</div>
+        <div class="mobile-nav">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Smart Analytics<br>& AI Training</h1>
+            <p class="hero-subtitle">
+                Transforming complex data into actionable insights through Power BI dashboards, 
+                and AI Model Training (Annotation, Labeling, etc).
+            </p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="about-heading">About Me</h2>
+        <div class="about-content">
+            <p class="about-text">
+                I am Mohamed Sameer, with a background in Civil Engineering. I specialize in Data Analysis and AI Training, 
+                offering expertise in transforming raw data into actionable insights and optimizing datasets for AI models. 
+                In Data Analysis, I provide custom analytics solutions and structured reporting. In AI Training, I focus on 
+                data annotation, model training, and machine learning infrastructure to enhance AI performance. My goal is 
+                to deliver precise, data-driven solutions tailored to business needs.
+            </p>
+            <div class="text-divider"></div>
+            <p class="about-text arabic">
+                أنا محمد سمير، بخلفية في الهندسة المدنية. أتخصص في تحليل البيانات وتدريب الذكاء الاصطناعي، 
+                مقدمًا خبرة في تحويل البيانات الخام إلى رؤى عملية وتحسين مجموعات البيانات لنماذج الذكاء الاصطناعي. 
+                في تحليل البيانات، أوفر حلول تحليلية مخصصة وتقارير منظمة. في تدريب الذكاء الاصطناعي، أركز على 
+                تدوين البيانات، تدريب النماذج، وبنية التعلم الآلي لتعزيز أداء الذكاء الاصطناعي. هدفي هو تقديم 
+                حلول دقيقة تعتمد على البيانات ومصممة حسب احتياجات الأعمال.
+            </p>
+        </div>
+    </section>
+
+    <section class="projects" id="work">
+        <!-- Data Analysis Section -->
+        <h2 class="category-heading">Data Analysis</h2>
+        <div class="projects-grid">
+            <a href="sales-dashboard.html" class="project-card">
+                <img src="https://i.ibb.co/W4DnsDsV/close-up-hand-holding-futuristic-screen.jpg" alt="Sales Analytics Suite" class="project-image" loading="lazy">
+                <div class="project-info">
+                    <h3 class="project-title">Sales Analytics Suite</h3>
+                    <span class="project-category">Business Intelligence</span>
+                </div>
+                <div class="project-overlay"><span>View Details</span></div>
+            </a>
+            <a href="financial-reporting.html" class="project-card">
+                <img src="https://i.ibb.co/C5Mpqg5c/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planni.jpg" alt="Financial Reporting System" class="project-image" loading="lazy">
+                <div class="project-info">
+                    <h3 class="project-title">Financial Reporting</h3>
+                    <span class="project-category">Financial Analytics</span>
+                </div>
+                <div class="project-overlay"><span>View Details</span></div>
+            </a>
+        </div>
+        <div class="view-all-projects">
+            <a href="separate.html" class="view-all-btn">
+                View All Data Projects
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 12l-4 4V8z"/>
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- AI Training Section -->
+        <h2 class="category-heading">AI Training</h2>
+        <div class="projects-grid">
+            <a href="ml-model.html" class="project-card">
+                <img src="https://i.ibb.co/DHVP75QN/ai-cloud-concept-with-robot-arms.jpg" alt="Text Annotation" class="project-image" loading="lazy">
+                <div class="project-info">
+                    <h3 class="project-title">Text Annotation</h3>
+                    <span class="project-category">Machine Learning</span>
+                </div>
+                <div class="project-overlay"><span>View Details</span></div>
+            </a>
+            <a href="nlp-system.html" class="project-card">
+                <img src="https://i.ibb.co/6RGGw7ZG/ai-chip-artificial-intelligence-future-technology-innovation.jpg" alt="Image Annotation" class="project-image" loading="lazy">
+                <div class="project-info">
+                    <h3 class="project-title">Image Annotation</h3>
+                    <span class="project-category">Machine Learning</span>
+                </div>
+                <div class="project-overlay"><span>View Details</span></div>
+            </a>
+        </div>
+        <div class="view-all-projects">
+            <a href="ai-training.html" class="view-all-btn">
+                View All AI Projects
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 12l-4 4V8z"/>
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="contact-heading">Let's Work Together</h2>
+        <div class="contact-info">
+            <p>Have a data challenge? Reach out to discuss how I can transform your numbers into actionable insights.</p>
+            
+            <!-- Contact Form with Netlify -->
+            <form 
+                class="contact-form" 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                data-netlify-honeypot="bot-field"
+                action="/thank-you"
+            >
+                <!-- Hidden field for Netlify -->
+                <input type="hidden" name="form-name" value="contact">
+                <p hidden>
+                    <label>Don’t fill this out: <input name="bot-field"></label>
+                </p>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="submit-btn">Send Message
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="send-icon">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="social-links">
+                <a href="mailto:ormita@zohomail.sa" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="social-icon"> E-Mail
+                </a>
+                <a href="https://www.linkedin.com/in/mohamedssameer" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="social-icon"> LinkedIn
+                </a>
+                <a href="https://twitter.com" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="social-icon"> Twitter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Ormita. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.mobile-nav').classList.toggle('active');
+        });
+
+        // Highlight Active Section
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Animate project cards and about section
+        document.querySelectorAll('.project-card, .about-content').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

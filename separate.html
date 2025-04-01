@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ormita - Data Analysis Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00ff88;
+            --card-bg: #161616;
+            --text-dark: #333;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        /* Project Sections */
+        .project-section {
+            padding: 8rem 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-section:nth-child(odd) {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .project-section:nth-child(even) {
+            background-color: var(--white-color);
+            color: var(--text-dark);
+        }
+
+        .project-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .project-description {
+            margin-bottom: 4rem;
+        }
+
+        .project-description h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .english-text, .arabic-text {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .english-text {
+            direction: ltr;
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-weight: 300;
+            color: inherit;
+        }
+
+        .project-section:nth-child(odd) .arabic-text {
+            color: #ddd;
+        }
+
+        .project-section:nth-child(even) .arabic-text {
+            color: #555;
+        }
+
+        .stage {
+            margin-bottom: 1rem;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .text-divider {
+            height: 2rem;
+            width: 100px;
+            margin: 2rem auto;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .project-video-container {
+            position: relative;
+            width: 100%;
+            opacity: 1; /* Ensure visible by default */
+            transform: none; /* Remove animation for now */
+        }
+
+        .project-video-container:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .project-video {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .project-video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .video-overlay.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-overlay span {
+            color: var(--accent-color);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #00ccff;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .mobile-nav-links.active {
+                display: flex;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-color);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-section {
+                padding: 4rem 5%;
+            }
+
+            .project-description h1 {
+                font-size: 1.8rem;
+            }
+
+            .english-text, .arabic-text {
+                font-size: 0.95rem;
+            }
+
+            .stage-title {
+                font-size: 1rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+
+            .project-video {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">ORMITA</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Back to Home</a>
+        </div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="nav-link">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Data Analysis Projects</h1>
+            <p>Explore my collection of Power BI dashboards designed to transform raw data into actionable insights for businesses.</p>
+        </div>
+    </section>
+
+    <!-- Project Sections -->
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Sales Performance Dashboard</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Aggregated sales data from CRM systems, POS terminals, and regional sales reports.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Cleaned duplicates, standardized formats, and enriched missing values using ETL processes.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Built relational models with calculated measures for revenue, growth rates, and customer segmentation.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Designed interactive Power BI visuals including line charts, heatmaps, and slicers for real-time filtering.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Identified top-performing regions and underperforming products, enabling targeted marketing strategies.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم تجميع بيانات المبيعات من أنظمة CRM، ومحطات نقاط البيع، وتقارير المبيعات الإقليمية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم تنظيف التكرارات، توحيد التنسيقات، وتخصيب القيم المفقودة باستخدام عمليات ETL.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم بناء نماذج علاقاتية مع مقاييس محسوبة للإيرادات، معدلات النمو، وتجزئة العملاء.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم تصميم صور بصرية تفاعلية في Power BI تشمل مخططات خطية، خرائط حرارية، وأدوات تقطيع للتصفية الفورية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم تحديد المناطق الأعلى أداءً والمنتجات ذات الأداء الضعيف، مما يتيح استراتيجيات تسويقية مستهدفة.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/IMad3YIrHnI?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Income Statement Dashboard</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Gathered financial data from accounting software and ERP systems.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Normalized revenue and expense categories, reconciled discrepancies, and adjusted for currency variations.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Created a schema with KPIs like profit margins, cost breakdowns, and year-over-year comparisons.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Developed Power BI dashboards with bar charts, trend lines, and drill-down capabilities.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Uncovered cost-saving opportunities and highlighted profitability trends for strategic planning.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم جمع البيانات المالية من برامج المحاسبة وأنظمة ERP.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم توحيد فئات الإيرادات والمصروفات، تسوية التناقضات، وضبط الاختلافات في العملات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم إنشاء مخطط مع مؤشرات الأداء الرئيسية مثل هوامش الربح، تفاصيل التكاليف، والمقارنات السنوية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم تطوير لوحات قيادة Power BI مع مخططات شريطية، خطوط الاتجاه، وقدرات التنقل للأسفل.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم اكتشاف فرص توفير التكاليف وإبراز اتجاهات الربحية للتخطيط الاستراتيجي.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/1592LLIVKeg?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Financial Insights Tracker</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Compiled operational data from internal systems and third-party APIs.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Standardized metrics, removed outliers, and aligned timestamps for consistency.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Calculated KPIs like efficiency ratios and throughput using DAX in Power BI.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Built dynamic dashboards with gauges, KPI cards, and time-series charts.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Revealed workflow bottlenecks and optimized resource allocation for productivity gains.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم تجميع بيانات التشغيل من الأنظمة الداخلية وواجهات برمجة التطبيقات الخارجية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم توحيد المقاييس، إزالة القيم الشاذة، وتسوية الطوابع الزمنية للتوافق.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم حساب مؤشرات الأداء مثل نسب الكفاءة والإنتاجية باستخدام DAX في Power BI.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم بناء لوحات قيادة ديناميكية مع عدادات، بطاقات KPI، ومخططات السلاسل الزمنية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم الكشف عن اختناقات سير العمل وتحسين تخصيص الموارد لزيادة الإنتاجية.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/pR7ev1yuhuo?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Retail Revenue Tracker</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Extracted data from retail POS systems and financial ledgers.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Consolidated transactions, corrected inconsistencies, and categorized revenue streams.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Developed models for cash flow analysis, asset tracking, and liability forecasting.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Created Power BI visuals with waterfall charts, pie charts, and trend indicators.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Highlighted cash flow patterns and asset utilization for improved financial planning.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم استخراج البيانات من أنظمة نقاط البيع في التجزئة والسجلات المالية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم توحيد المعاملات، تصحيح التناقضات، وتصنيف تدفقات الإيرادات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم تطوير نماذج لتحليل التدفق النقدي، تتبع الأصول، والتنبؤ بالالتزامات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم إنشاء صور بصرية في Power BI مع مخططات شلالية، مخططات دائرية، ومؤشرات الاتجاه.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم إبراز أنماط التدفق النقدي واستخدام الأصول لتحسين التخطيط المالي.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/wshiyOY6a0I?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Real-estate Development Dashboard</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Sourced data from CRM tools, surveys, and real estate databases.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Cleaned demographic data, merged datasets, and validated customer records.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Applied segmentation models and engagement scoring using statistical methods.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Designed Power BI dashboards with demographic maps, bar charts, and engagement trends.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Uncovered customer preferences and high-engagement segments for targeted campaigns.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم الحصول على البيانات من أدوات CRM، الاستطلاعات، وقواعد بيانات العقارات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم تنظيف بيانات التركيبة السكانية، دمج مجموعات البيانات، والتحقق من سجلات العملاء.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم تطبيق نماذج التجزئة وتسجيل التفاعل باستخدام الأساليب الإحصائية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم تصميم لوحات قيادة Power BI مع خرائط ديموغرافية، مخططات شريطية، واتجاهات التفاعل.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم الكشف عن تفضيلات العملاء وشرائح التفاعل العالي للحملات المستهدفة.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/62yjpAHsLzY?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Real-estate Prices in Saudi Arabia Dashboard</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Collected pricing data from public records, real estate listings, and market reports.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Filtered outliers, normalized property attributes, and geocoded locations.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Built trend analysis models and price indices using time-series techniques.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Implemented Power BI visuals with geographic heatmaps, line graphs, and price filters.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Identified price trends and high-growth areas for investment opportunities.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم جمع بيانات التسعير من السجلات العامة، قوائم العقارات، وتقارير السوق.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم تصفية القيم الشاذة، توحيد خصائص العقارات، وترميز المواقع جغرافيًا.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم بناء نماذج تحليل الاتجاهات ومؤشرات الأسعار باستخدام تقنيات السلاسل الزمنية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم تنفيذ صور بصرية في Power BI مع خرائط حرارية جغرافية، مخططات خطية، ومرشحات الأسعار.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم تحديد اتجاهات الأسعار والمناطق ذات النمو العالي لفرص الاستثمار.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/YxttuwQRih8?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Crane Service Provider Dashboard</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Data Collection:</div>
+                        Gathered project data from scheduling tools, equipment logs, and client contracts.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Preparation:</div>
+                        Aligned timelines, categorized resources, and resolved data entry errors.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Data Modeling:</div>
+                        Constructed models for milestone tracking, resource utilization, and cost estimation.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Visualization:</div>
+                        Crafted Power BI dashboards with Gantt charts, resource heatmaps, and progress bars.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Insights:</div>
+                        Optimized crane scheduling and resource deployment, reducing downtime by 15%.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">جمع البيانات:</div>
+                        تم جمع بيانات المشروع من أدوات الجدولة، سجلات المعدات، وعقود العملاء.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">تحضير البيانات:</div>
+                        تم تسوية الجداول الزمنية، تصنيف الموارد، وحل أخطاء إدخال البيانات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نمذجة البيانات:</div>
+                        تم بناء نماذج لتتبع المعالم، استخدام الموارد، وتقدير التكاليف.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التصور:</div>
+                        تم تصميم لوحات قيادة Power BI مع مخططات جانت، خرائط حرارية للموارد، وأشرطة التقدم.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الرؤى:</div>
+                        تم تحسين جدولة الرافعات ونشر الموارد، مما قلل من وقت التوقف بنسبة 15%.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/vj1AFfD6neQ?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Ormita. All rights reserved.</p>
+        <div class="social-links">
+            <a href="mailto:ormita@zohomail.sa">Email</a>
+            <a href="www.linkedin.com/in/mohamedssameer">LinkedIn</a>
+            <a href="https://twitter.com">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-nav-links');
+            menu.classList.toggle('active');
+        }
+
+        // Video overlay click handler
+        document.querySelectorAll('.video-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function() {
+                const iframe = this.previousElementSibling;
+                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                this.classList.add('active');
+            });
+        });
+
+        // Debug: Check video visibility on load
+        window.addEventListener('load', () => {
+            console.log('Page loaded, checking videos...');
+            document.querySelectorAll('.project-video-container').forEach((el, i) => {
+                const rect = el.getBoundingClientRect();
+                console.log(`Video ${i}: top=${rect.top}, left=${rect.left}, width=${rect.width}, height=${rect.height}`);
+                if (rect.width === 0 || rect.height === 0) {
+                    console.warn(`Video ${i} has zero dimensions!`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
