@@ -319,6 +319,12 @@
             grid-column: 1 / -1;
         }
 
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -394,7 +400,6 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            position: relative; /* For positioning the tooltip */
         }
 
         .social-link:hover {
@@ -404,31 +409,6 @@
         .social-icon {
             width: 24px;
             height: 24px;
-        }
-
-        /* Tooltip Styles */
-        .tooltip {
-            visibility: hidden;
-            background-color: #222;
-            color: var(--text-color);
-            text-align: center;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; /* Position above the link */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-            box-shadow: 0 2px 10px rgba(0, 255, 136, 0.2);
-        }
-
-        .social-link:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
         }
 
         /* Footer */
@@ -501,11 +481,6 @@
 
             .social-links {
                 gap: 1.5rem;
-            }
-
-            .tooltip {
-                bottom: 100%; /* Adjust for smaller screens if needed */
-                font-size: 0.8rem;
             }
         }
 
@@ -614,7 +589,7 @@
             </a>
         </div>
         <div class="view-all-projects">
-            <a href="ai-training.html" class="view-all-btn">
+            <a href="text annotation.html" class="view-all-btn">
                 View All AI Projects
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M14 12l-4 4V8z"/>
@@ -629,33 +604,20 @@
         <div class="contact-info">
             <p>Have a data challenge? Reach out to discuss how I can transform your numbers into actionable insights.</p>
             
-            <!-- Contact Form with Netlify -->
-            <form 
-                class="contact-form" 
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
-                data-netlify-honeypot="bot-field"
-                action="/thank-you"
-            >
-                <!-- Hidden field for Netlify -->
-                <input type="hidden" name="form-name" value="contact">
-                <p hidden>
-                    <label>Don’t fill this out: <input name="bot-field"></label>
-                </p>
-                
+            <!-- Enhanced Contact Form with Netlify -->
+            <form class="contact-form" name="contact" method="POST" netlify>
                 <div class="form-grid">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <label>Name <input type="text" name="name" required></label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <label>Email <input type="email" name="email" required></label>
                     </div>
                     <div class="form-group full-width">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <label>Subject <input type="text" name="subject" required></label>
                     </div>
                     <div class="form-group full-width">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <label>Message <textarea name="message" rows="5" required></textarea></label>
                     </div>
                     <div class="form-group full-width">
                         <button type="submit" class="submit-btn">Send Message
@@ -669,9 +631,7 @@
 
             <div class="social-links">
                 <a href="mailto:ormita@zohomail.sa" class="social-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="social-icon"> 
-                    E-Mail
-                    <span class="tooltip">ormita@zohomail.sa</span>
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="social-icon"> E-Mail
                 </a>
                 <a href="https://www.linkedin.com/in/mohamedssameer" class="social-link">
                     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="social-icon"> LinkedIn
