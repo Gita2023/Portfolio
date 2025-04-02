@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ormita - Text Annotation Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00ff88;
+            --card-bg: #161616;
+            --text-dark: #333;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        .project-section {
+            padding: 8rem 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-section:nth-child(odd) {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .project-section:nth-child(even) {
+            background-color: var(--white-color);
+            color: var(--text-dark);
+        }
+
+        .project-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .project-description {
+            margin-bottom: 4rem;
+        }
+
+        .project-description h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .english-text, .arabic-text {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .english-text {
+            direction: ltr;
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-weight: 300;
+            color: inherit;
+        }
+
+        .project-section:nth-child(odd) .arabic-text {
+            color: #ddd;
+        }
+
+        .project-section:nth-child(even) .arabic-text {
+            color: #555;
+        }
+
+        .stage {
+            margin-bottom: 1rem;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .text-divider {
+            height: 2rem;
+            width: 100px;
+            margin: 2rem auto;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .project-video-container {
+            position: relative;
+            width: 100%;
+            opacity: 1;
+            transform: none;
+        }
+
+        .project-video-container:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .project-video {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .project-video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .video-overlay.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-overlay span {
+            color: var(--accent-color);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #00ccff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .mobile-nav-links.active {
+                display: flex;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-color);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-section {
+                padding: 4rem 5%;
+            }
+
+            .project-description h1 {
+                font-size: 1.8rem;
+            }
+
+            .english-text, .arabic-text {
+                font-size: 0.95rem;
+            }
+
+            .stage-title {
+                font-size: 1rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+
+            .project-video {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">ORMITA</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Back to Home</a>
+        </div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="nav-link">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Text Annotation Projects</h1>
+            <p>Explore my AI-powered text annotation solutions for natural language processing and machine learning applications.</p>
+        </div>
+    </section>
+
+    <!-- Project Sections -->
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Named Entity Recognition (NER)</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Identifies and classifies named entities (e.g., people, organizations, locations) in text for information extraction.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Annotated text using Label Studio to tag entities like "Sarah Johnson" (PERSON), "Microsoft" (ORGANIZATION), and "Seattle" (LOCATION).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Used in knowledge graph construction and question-answering systems.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يحدد ويصنف الكيانات المسماة (مثل الأشخاص، المنظمات، المواقع) في النص لاستخراج المعلومات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليق النص باستخدام Label Studio لتوسيم الكيانات مثل "سارة جونسون" (شخص)، "مايكروسوفت" (منظمة)، و"سياتل" (موقع).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يُستخدم في بناء الرسوم البيانية للمعرفة وأنظمة الإجابة على الأسئلة.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/1592LLIVKeg?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Sentiment Annotation</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Classifies text into POSITIVE, NEGATIVE, or NEUTRAL to analyze emotional tone.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Labeled reviews like "I’m thrilled with its performance" as POSITIVE using a single-choice interface.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Applied to customer feedback analysis and social media monitoring.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يصنف النص إلى إيجابي، سلبي، أو محايد لتحليل النغمة العاطفية.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تصنيف المراجعات مثل "أنا متحمس لأدائها" كإيجابية باستخدام واجهة اختيار واحد.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يُطبق على تحليل تعليقات العملاء ورصد وسائل التواصل الاجتماعي.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/0f4ml8spMK4?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Part-of-Speech (POS) Tagging</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Assigns grammatical categories (e.g., NOUN, VERB) to words for syntactic analysis.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Tagged "The curious cat quickly jumped" with labels like "cat" (NOUN), "jumped" (VERB).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Used in machine translation and text generation systems.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يعين فئات نحوية (مثل اسم، فعل) للكلمات لتحليل التركيب.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليم "القط المتعجب قفز بسرعة" بعلامات مثل "قط" (اسم)، "قفز" (فعل).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبIQ:</div>
+                        يُستخدم في أنظمة الترجمة الآلية وتوليد النصوص.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/h_rsdGj7sKw?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Text Classification</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Assigns a category (e.g., SPAM, REQUEST) to text based on its content.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Classified "I’m frustrated with this product" as COMPLAINT using a choice-based interface.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Used in spam detection and chatbot intent recognition.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يعين فئة (مثل بريد مزعج، طلب) للنص بناءً على محتواه.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تصنيف "أنا محبط من هذا المنتج" كشكوى باستخدام واجهة اختيار.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يُستخدم في كشف البريد المزعج وتتعرف نوايا روبوتات الدردشة.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-classification?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Relation Extraction</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Identifies relationships (e.g., "works at") between entities in text.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Annotated "Elon Musk works at SpaceX" with relations like "Elon Musk" → "works at" → "SpaceX".
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Used to build knowledge graphs and enhance search systems.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يحدد العلاقات (مثل "يعمل في") بين الكيانات في النص.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليم "إيلون ماسك يعمل في سبيس إكس" بعلاقات مثل "إيلون ماسك" → "يعمل في" → "سبيس إكس".
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يُستخدم لبناء الرسوم البيانية للمعرفة وتحسين أنظمة البحث.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-relation?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Semantic Annotation</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Links text to meanings (e.g., "Python" as a programming language).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Tagged "Python" as "programming language" and "moon" as "celestial body" in a coding context.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Enhances search and recommendation systems.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يربط النص بالمعاني (مثل "بايثون" كلغة برمجة).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليم "بايثون" كـ"لغة برمجة" و"القمر" كـ"جرم سماوي" في سياق البرمجة.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يعزز أنظمة البحث والتوصية.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-semantic?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Coreference Resolution</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Links pronouns or phrases to their referents (e.g., "She" to "Lisa").
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Annotated "Lisa bought a car. She drove it" with "She" → "refers to" → "Lisa".
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Improves text understanding in summarization and QA systems.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يربط الضمائر أو العبارات بمراجعها (مثل "هي" بـ"ليزا").
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليم "ليزا اشترت سيارة. هي قادتها" بـ"هي" → "تشير إلى" → "ليزا".
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يحسن فهم النص في أنظمة التلخيص والإجابة على الأسئلة.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-coreference?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Intent Annotation</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Classifies the goal of text (e.g., BOOK, ASK) for conversational AI.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Labeled "Reserve a table" as BOOK intent using a single-choice interface.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Powers chatbot request handling.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يصنف هدف النص (مثل حجز، سؤال) للذكاء الاصطناعي التفاعلي.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تصنيف "احجز طاولة" كنية حجز باستخدام واجهة اختيار واحد.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يدعم معالجة طلبات روبوتات الدردشة.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-intent?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Dependency Parsing</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Analyzes grammatical dependencies between words (e.g., SUBJECT, ROOT).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Annotated "The dog barked" with "dog" (SUBJECT) → "depends on" → "barked" (ROOT).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Used in machine translation and syntactic analysis.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يحلل التبعيات النحوية بين الكلمات (مثل فاعل، جذر).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليم "الكلب نبح" بـ"الكلب" (فاعل) → "يعتمد على" → "نبح" (جذر).
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يُستخدم في الترجمة الآلية والتحليل النحوي.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-dependency?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Text Span Annotation</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Purpose:</div>
+                        Highlights key phrases or concepts in text for extraction.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Process:</div>
+                        Tagged "Artificial intelligence" and "machine learning" as KEY_PHRASE in a tech text.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Application:</div>
+                        Used in summarization and keyphrase extraction systems.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">الغرض:</div>
+                        يبرز العبارات أو المفاهيم الرئيسية في النص للاستخراج.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">العملية:</div>
+                        تم تعليم "الذكاء الاصطناعي" و"التعلم الآلي" كعبارة رئيسية في نص تقني.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">التطبيق:</div>
+                        يُستخدم في أنظمة التلخيص واستخراج العبارات الرئيسية.
+                    </div>
+                </div>
+            </div>
+            <div class="project-video-container">
+                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-span?enablejsapi=1" allowfullscreen></iframe>
+                <div class="video-overlay"><span>Play</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Ormita. All rights reserved.</p>
+        <div class="social-links">
+            <a href="mailto:ormita@zohomail.sa">Email</a>
+            <a href="www.linkedin.com/in/mohamedssameer">LinkedIn</a>
+            <a href="https://twitter.com">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-nav-links');
+            menu.classList.toggle('active');
+        }
+
+        document.querySelectorAll('.video-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function() {
+                const iframe = this.previousElementSibling;
+                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
