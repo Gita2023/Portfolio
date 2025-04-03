@@ -72,6 +72,79 @@
             cursor: pointer;
         }
 
+        .mobile-nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 5%;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .mobile-nav-links.active {
+            display: flex;
+        }
+
+        /* Ensure mobile-nav-links stays hidden on desktop */
+        @media (min-width: 769px) {
+            .mobile-nav-links {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-nav-links {
+                display: none;
+            }
+
+            .mobile-nav-links.active {
+                display: flex;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-color);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-section {
+                padding: 4rem 5%;
+            }
+
+            .project-description h1 {
+                font-size: 1.8rem;
+            }
+
+            .english-text, .arabic-text {
+                font-size: 0.95rem;
+            }
+
+            .stage-title {
+                font-size: 1rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+        }
+
         .hero {
             height: 100vh;
             display: flex;
@@ -194,64 +267,6 @@
 
         .social-links a:hover {
             color: #00ccff;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .mobile-nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 5%;
-                background: rgba(10, 10, 10, 0.95);
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .mobile-nav-links.active {
-                display: flex;
-            }
-
-            .mobile-nav-links a {
-                color: var(--text-color);
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .project-section {
-                padding: 4rem 5%;
-            }
-
-            .project-description h1 {
-                font-size: 1.8rem;
-            }
-
-            .english-text, .arabic-text {
-                font-size: 0.95rem;
-            }
-
-            .stage-title {
-                font-size: 1rem;
-            }
-
-            .text-divider {
-                height: 1.5rem;
-                width: 80px;
-            }
         }
     </style>
 </head>
@@ -663,6 +678,13 @@
             const menu = document.querySelector('.mobile-nav-links');
             menu.classList.toggle('active');
         }
+
+        // Ensure mobile menu is closed on page load (for desktop)
+        window.addEventListener('load', function() {
+            if (window.innerWidth > 768) {
+                document.querySelector('.mobile-nav-links').classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
