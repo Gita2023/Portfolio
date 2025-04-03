@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Sameer - Civil Inspector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00ff88;
+            --card-bg: #161616;
+            --text-dark: #333;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        .project-section {
+            padding: 8rem 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-section:nth-child(odd) {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .project-section:nth-child(even) {
+            background-color: var(--white-color);
+            color: var(--text-dark);
+        }
+
+        .project-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .project-description {
+            margin-bottom: 4rem;
+        }
+
+        .project-description h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .english-text, .arabic-text {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .english-text {
+            direction: ltr;
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-weight: 300;
+            color: inherit;
+        }
+
+        .project-section:nth-child(odd) .arabic-text {
+            color: #ddd;
+        }
+
+        .project-section:nth-child(even) .arabic-text {
+            color: #555;
+        }
+
+        .stage {
+            margin-bottom: 1rem;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .text-divider {
+            height: 2rem;
+            width: 100px;
+            margin: 2rem auto;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.7;
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #00ccff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .mobile-nav-links.active {
+                display: flex;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-color);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-section {
+                padding: 4rem 5%;
+            }
+
+            .project-description h1 {
+                font-size: 1.8rem;
+            }
+
+            .english-text, .arabic-text {
+                font-size: 0.95rem;
+            }
+
+            .stage-title {
+                font-size: 1rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">Mohamed Sameer</div>
+        <div class="nav-links">
+            <a href="#summary" class="nav-link">Summary</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+        </div>
+        <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+        <div class="mobile-nav-links">
+            <a href="#summary" class="nav-link">Summary</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mohamed Sameer</h1>
+            <p>Civil Inspector | 12+ Years of Experience</p>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="project-section" id="summary">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Professional Summary</h1>
+                <div class="english-text">
+                    Civil Inspector with over 12 years of experience in civil engineering projects, including buildings, steel structures, maintenance, and water works. Skilled in site supervision, quantity surveying, and ensuring projects adhere to quality, safety, and environmental regulations. Visit <a href="https://ormita.netlify.app" target="_blank">ormita.netlify.app</a> for more details.
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    مفتش مدني يمتلك خبرة تزيد عن 12 عامًا في مشاريع الهندسة المدنية، بما في ذلك المباني، الهياكل الفولاذية، الصيانة، وأعمال المياه. ماهر في الإشراف على المواقع، مسح الكميات، وضمان التزام المشاريع بمعايير الجودة والسلامة واللوائح البيئية. زر <a href="https://ormita.netlify.app" target="_blank">ormita.netlify.app</a> لمزيد من التفاصيل.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="project-section" id="experience">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Work Experience</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - Aknan Architectural | Riyadh, Saudi Arabia | 2022 – Present</div>
+                        Conducting inspections to verify project compliance with quality and regulatory standards. Monitor construction works, material testing, and quality control. Identify issues and coordinate corrective actions. Review technical documents such as method statements and drawings. Communicate with contractors to clarify technical requirements. Maintain project records and prepare progress reports. Promote safety and environmental compliance.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - SDT International | Jeddah, Saudi Arabia | 2021</div>
+                        Project: Formula 1 Race Track. Supervise excavation, dewatering, and pipe installation works. Maintain project records and supervise final inspections. Ensure work is in line with contract terms and standards. Organize field and laboratory testing of building materials.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - Hadiah Abdul Latif Jameel (HALJ) | Riyadh, Saudi Arabia | 2017 – 2020</div>
+                        Project: Diyar Hadiah Residence (226 Apartments). Inspect civil works, finishing, aluminum, elevators, MEP works. Coordinate and inspect contractors’ work across disciplines. Ensure contractors follow contract terms and safety rules. Maintain detailed records and conduct final site inspections.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - ST Electronics - Multinational | Tabuk, Saudi Arabia | 2014 - 2016</div>
+                        Supervise excavation and foundation works, assembly and installation of CCTV poles, cameras, and screens above road gates. Conduct final inspections and material checks. Manage corrective actions for non-compliance.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - AL-HELB for Trading and Contracting | Hail, Saudi Arabia | 2013 - 2014</div>
+                        Projects: Administration Building (Hail Industrial City), SEC Substation Maintenance. Supervise construction tasks and subcontractors. Review project documents and contractor compliance. Conduct final inspections and quantity surveys.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - AL-Razi for Engineering Services | Sudan | 2011 – 2012</div>
+                        Project: Thawra Water Project, Sector 14. Supervising excavation and pipe installation works. Monitoring construction safety and quality. Maintaining inspection records and ensuring professional work.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Civil Inspector - Al-Mohammadiya Contracting | Sudan | 2007 – 2008</div>
+                        Project: Construction of a Secondary School. Inspecting construction quality and ensuring safety compliance. Maintaining inspection records and conducting final inspections.
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - أكنان المعمارية | الرياض، المملكة العربية السعودية | 2022 – الآن</div>
+                        إجراء التفتيشات للتحقق من امتثال المشروع لمعايير الجودة والتنظيمية. مراقبة أعمال البناء، اختبار المواد، والتحكم في الجودة. تحديد المشكلات وتنسيق الإجراءات التصحيحية. مراجعة الوثائق الفنية مثل بيانات الطريقة والرسومات. التواصل مع المقاولين لتوضيح المتطلبات الفنية. الاحتفاظ بسجلات المشروع وإعداد تقارير التقدم. تعزيز الامتثال للسلامة والبيئة.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - SDT الدولية | جدة، المملكة العربية السعودية | 2021</div>
+                        المشروع: حلبة سباق الفورمولا 1. الإشراف على أعمال الحفر، نزح المياه، وتركيب الأنابيب. الاحتفاظ بسجلات المشروع والإشراف على التفتيشات النهائية. ضمان توافق العمل مع شروط العقد والمعايير. تنظيم اختبارات الحقل والمختبر لمواد البناء.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - هادية عبد اللطيف جميل | الرياض، المملكة العربية السعودية | 2017 – 2020</div>
+                        المشروع: ديار هادية ريزيدنس (226 شقة). تفتيش الأعمال المدنية، التشطيبات، الألمنيوم، المصاعد، وأعمال MEP. تنسيق وتفتيش أعمال المقاولين عبر التخصصات. ضمان اتباع المقاولين لشروط العقد وقواعد السلامة. الاحتفاظ بسجلات مفصلة وإجراء التفتيشات النهائية للموقع.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - ST Electronics - متعددة الجنسيات | تبوك، المملكة العربية السعودية | 2014 - 2016</div>
+                        الإشراف على أعمال الحفر والأساسات، تجميع وتركيب أعمدة CCTV، الكاميرات، والشاشات فوق بوابات الطرق. إجراء التفتيشات النهائية وفحوصات المواد. إدارة الإجراءات التصحيحية لعدم الامتثال.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - الهلب للتجارة والمقاولات | حائل، المملكة العربية السعودية | 2013 - 2014</div>
+                        المشاريع: مبنى الإدارة (مدينة حائل الصناعية)، صيانة محطة SEC الفرعية. الإشراف على مهام البناء والمقاولين من الباطن. مراجعة وثائق المشروع وامتثال المقاول. إجراء التفتيشات النهائية ومسح الكميات.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - الرازي للخدمات الهندسية | السودان | 2011 – 2012</div>
+                        المشروع: مشروع مياه الثورة، القطاع 14. الإشراف على أعمال الحفر وتركيب الأنابيب. مراقبة سلامة وجودة البناء. الاحتفاظ بسجلات التفتيش وضمان العمل الاحترافي.
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">مفتش مدني - المحمدية للمقاولات | السودان | 2007 – 2008</div>
+                        المشروع: بناء مدرسة ثانوية. تفتيش جودة البناء وضمان الامتثال للسلامة. الاحتفاظ بسجلات التفتيش وإجراء التفتيشات النهائية.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="project-section" id="education">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Education</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Diploma in Civil Engineering</div>
+                        Sudan University of Science and Technology
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Software Engineering</div>
+                        ALX Africa
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Advanced Building System M2 (3D Panel)</div>
+                        Advanced Building System
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Primavera</div>
+                        University of Khartoum
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">First Aid and CPR</div>
+                        Petroleum and Natural Gas Training Institute
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">دبلوم في الهندسة المدنية</div>
+                        جامعة السودان للعلوم والتكنولوجيا
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">هندسة البرمجيات</div>
+                        ALX أفريقيا
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">نظام البناء المتقدم M2 (لوحة ثلاثية الأبعاد)</div>
+                        نظام البناء المتقدم
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">بريمافيرا</div>
+                        جامعة الخرطوم
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">الإسعافات الأولية والإنعاش القلبي الرئوي</div>
+                        معهد تدريب البترول والغاز الطبيعي
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="project-section" id="skills">
+        <div class="project-container">
+            <div class="project-description">
+                <h1>Skills</h1>
+                <div class="english-text">
+                    <div class="stage">
+                        <div class="stage-title">Technical Skills:</div>
+                        Site Supervision, Quantity Surveying, Material Testing, Quality Control, Compliance with Codes and Standards, Project Coordination, Microsoft Office, AutoCAD, Primavera, Power BI
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Soft Skills:</div>
+                        Time Management, Communication, Analytical Thinking, Record Keeping, Following Rules and Regulations
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">Languages:</div>
+                        Arabic, English, Local Language
+                    </div>
+                </div>
+                <div class="text-divider"></div>
+                <div class="arabic-text">
+                    <div class="stage">
+                        <div class="stage-title">المهارات التقنية:</div>
+                        الإشراف على الموقع، مسح الكميات، اختبار المواد، التحكم في الجودة، الامتثال للأكواد والمعايير، تنسيق المشاريع، مايكروسوفت أوفيس، أوتوكاد، بريمافيرا، Power BI
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">المهارات الناعمة:</div>
+                        إدارة الوقت، التواصل، التفكير التحليلي، الاحتفاظ بالسجلات، اتباع القواعد واللوائح
+                    </div>
+                    <div class="stage">
+                        <div class="stage-title">اللغات:</div>
+                        العربية، الإنجليزية، اللغة المحلية
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Mohamed Sameer. All rights reserved.</p>
+        <div class="social-links">
+            <a href="mailto:2861988ed@gmail.com">Email</a>
+            <a href="https://ormita.netlify.app" target="_blank">Website</a>
+            <a href="tel:0568389608">Phone: 0568389608</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-nav-links');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
