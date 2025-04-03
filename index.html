@@ -214,30 +214,6 @@
             background: linear-gradient(transparent, rgba(0,0,0,0.9));
         }
 
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .project-overlay span {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
         .project-title {
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
@@ -252,6 +228,7 @@
         .view-all-projects {
             text-align: center;
             margin-top: 3rem;
+            margin-bottom: 4rem; /* Added for spacing below the button */
         }
 
         .view-all-btn {
@@ -400,10 +377,33 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
         }
 
         .social-link:hover {
             color: var(--accent-color);
+        }
+
+        .social-link[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #222;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .social-link[data-tooltip]::after {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .social-icon {
@@ -547,7 +547,6 @@
                     <h3 class="project-title">Sales Analytics Suite</h3>
                     <span class="project-category">Business Intelligence</span>
                 </div>
-                <div class="project-overlay"><span>View Details</span></div>
             </a>
             <a href="financial-reporting.html" class="project-card">
                 <img src="https://i.ibb.co/C5Mpqg5c/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planni.jpg" alt="Financial Reporting System" class="project-image" loading="lazy">
@@ -555,7 +554,6 @@
                     <h3 class="project-title">Financial Reporting</h3>
                     <span class="project-category">Financial Analytics</span>
                 </div>
-                <div class="project-overlay"><span>View Details</span></div>
             </a>
         </div>
         <div class="view-all-projects">
@@ -577,20 +575,30 @@
                     <h3 class="project-title">Text Annotation</h3>
                     <span class="project-category">Machine Learning</span>
                 </div>
-                <div class="project-overlay"><span>View Details</span></div>
             </a>
+        </div>
+        <div class="view-all-projects">
+            <a href="text-annotation.html" class="view-all-btn">
+                View All Text Projects
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 12l-4 4V8z"/>
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="projects-grid">
             <a href="nlp-system.html" class="project-card">
                 <img src="https://i.ibb.co/6RGGw7ZG/ai-chip-artificial-intelligence-future-technology-innovation.jpg" alt="Image Annotation" class="project-image" loading="lazy">
                 <div class="project-info">
                     <h3 class="project-title">Image Annotation</h3>
                     <span class="project-category">Machine Learning</span>
                 </div>
-                <div class="project-overlay"><span>View Details</span></div>
             </a>
         </div>
         <div class="view-all-projects">
-            <a href="text annotation.html" class="view-all-btn">
-                View All AI Projects
+            <a href="image-annotation.html" class="view-all-btn">
+                View All Image Projects
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M14 12l-4 4V8z"/>
                     <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none"/>
@@ -630,7 +638,7 @@
             </form>
 
             <div class="social-links">
-                <a href="mailto:ormita@zohomail.sa" class="social-link">
+                <a href="mailto:ormita@zohomail.sa" class="social-link" data-tooltip="ormita@zohomail.sa">
                     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="social-icon"> E-Mail
                 </a>
                 <a href="https://www.linkedin.com/in/mohamedssameer" class="social-link">
