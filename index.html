@@ -6,6 +6,7 @@
     <title>Ormita - Data Analytics Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Original styles remain unchanged */
         :root {
             --bg-color: #0a0a0a;
             --text-color: #ffffff;
@@ -27,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
         .nav {
             position: fixed;
             width: 100%;
@@ -89,7 +89,6 @@
             transform: translateX(0);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -123,7 +122,6 @@
             animation: fadeInUp 1s ease-out 0.2s backwards;
         }
 
-        /* About Section */
         .about {
             padding: 8rem 5%;
             background: #141414;
@@ -164,7 +162,31 @@
             opacity: 0.7;
         }
 
-        /* Projects Section */
+        .view-cv-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .view-cv-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .view-cv-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Rest of the styles remain unchanged */
         .projects {
             padding: 8rem 5%;
         }
@@ -224,11 +246,10 @@
             font-size: 0.875rem;
         }
 
-        /* View All Button */
         .view-all-projects {
             text-align: center;
             margin-top: 3rem;
-            margin-bottom: 4rem; /* Added for spacing below the button */
+            margin-bottom: 4rem;
         }
 
         .view-all-btn {
@@ -254,7 +275,6 @@
             height: 20px;
         }
 
-        /* Contact Section */
         .contact {
             padding: 8rem 5%;
             max-width: 1200px;
@@ -272,7 +292,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Contact Form Styles */
         .contact-form {
             max-width: 800px;
             margin: 2rem auto;
@@ -411,7 +430,6 @@
             height: 24px;
         }
 
-        /* Footer */
         footer {
             background: #1a1a1a;
             padding: 1rem;
@@ -419,7 +437,6 @@
             color: #ccc;
         }
 
-        /* Mobile Styles */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -496,12 +513,14 @@
         <div class="nav-links">
             <a href="#about" class="nav-link">About</a>
             <a href="#work" class="nav-link">Work</a>
+            <a href="cv.html" class="nav-link">CV</a> <!-- Added CV link -->
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <div class="hamburger">☰</div>
         <div class="mobile-nav">
             <a href="#about" class="nav-link">About</a>
             <a href="#work" class="nav-link">Work</a>
+            <a href="cv.html" class="nav-link">CV</a> <!-- Added CV link -->
             <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
@@ -534,11 +553,17 @@
                 تدوين البيانات، تدريب النماذج، وبنية التعلم الآلي لتعزيز أداء الذكاء الاصطناعي. هدفي هو تقديم 
                 حلول دقيقة تعتمد على البيانات ومصممة حسب احتياجات الأعمال.
             </p>
+            <a href="cv.html" class="view-cv-btn"> <!-- Added View CV button -->
+                View My CV
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 12l-4 4V8z"/>
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none"/>
+                </svg>
+            </a>
         </div>
     </section>
 
     <section class="projects" id="work">
-        <!-- Data Analysis Section -->
         <h2 class="category-heading">Data Analysis</h2>
         <div class="projects-grid">
             <a href="sales-dashboard.html" class="project-card">
@@ -566,7 +591,6 @@
             </a>
         </div>
 
-        <!-- AI Training Section -->
         <h2 class="category-heading">AI Training</h2>
         <div class="projects-grid">
             <a href="ml-model.html" class="project-card">
@@ -611,8 +635,6 @@
         <h2 class="contact-heading">Let's Work Together</h2>
         <div class="contact-info">
             <p>Have a data challenge? Reach out to discuss how I can transform your numbers into actionable insights.</p>
-            
-            <!-- Enhanced Contact Form with Netlify -->
             <form class="contact-form" name="contact" method="POST" netlify>
                 <div class="form-grid">
                     <div class="form-group">
@@ -699,7 +721,6 @@
             });
         });
 
-        // Animate project cards and about section
         document.querySelectorAll('.project-card, .about-content').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(20px)';
