@@ -178,8 +178,6 @@
         .project-video-container {
             position: relative;
             width: 100%;
-            opacity: 1;
-            transform: none;
         }
 
         .project-video-container:hover {
@@ -196,37 +194,6 @@
             position: relative;
             z-index: 1;
             display: block;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-            z-index: 2;
-            cursor: pointer;
-        }
-
-        .project-video-container:hover .video-overlay {
-            opacity: 1;
-        }
-
-        .video-overlay.active {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .video-overlay span {
-            color: var(--accent-color);
-            font-size: 2rem;
-            font-weight: 600;
         }
 
         footer {
@@ -314,7 +281,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="nav">
         <div class="nav-logo">ORMITA</div>
         <div class="nav-links">
@@ -326,7 +292,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Text Annotation Projects</h1>
@@ -334,7 +299,6 @@
         </div>
     </section>
 
-    <!-- Project Sections -->
     <section class="project-section">
         <div class="project-container">
             <div class="project-description">
@@ -371,7 +335,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/OngRQqetblE?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -412,7 +375,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/0f4ml8spMK4?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -446,14 +408,13 @@
                         تم تعليم "القط المتعجب قفز بسرعة" بعلامات مثل "قط" (اسم)، "قفز" (فعل).
                     </div>
                     <div class="stage">
-                        <div class="stage-title">التطبIQ:</div>
+                        <div class="stage-title">التطبيق:</div>
                         يُستخدم في أنظمة الترجمة الآلية وتوليد النصوص.
                     </div>
                 </div>
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/h_rsdGj7sKw?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -494,7 +455,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-classification?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -535,7 +495,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-relation?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -576,7 +535,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-semantic?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -617,7 +575,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-coreference?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -658,7 +615,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-intent?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -699,7 +655,6 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-dependency?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
@@ -740,12 +695,10 @@
             </div>
             <div class="project-video-container">
                 <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-span?enablejsapi=1" allowfullscreen></iframe>
-                <div class="video-overlay"><span>Play</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 Ormita. All rights reserved.</p>
         <div class="social-links">
@@ -761,13 +714,26 @@
             menu.classList.toggle('active');
         }
 
-        document.querySelectorAll('.video-overlay').forEach(overlay => {
-            overlay.addEventListener('click', function() {
-                const iframe = this.previousElementSibling;
-                iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                this.classList.add('active');
+        const videos = document.querySelectorAll('.project-video');
+        
+        function checkVideosInView() {
+            videos.forEach(video => {
+                const rect = video.getBoundingClientRect();
+                const isInView = (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+
+                if (isInView) {
+                    video.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                } else {
+                    video.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
             });
-        });
+        }
+
+        window.addEventListener('scroll', checkVideosInView);
+        window.addEventListener('load', checkVideosInView);
     </script>
 </body>
 </html>
