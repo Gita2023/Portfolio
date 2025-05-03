@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VLF5S001QF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VLF5S001QF');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ormita - Data Analytics Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Original styles remain unchanged */
         :root {
             --bg-color: #0a0a0a;
             --text-color: #ffffff;
@@ -186,7 +193,6 @@
             height: 20px;
         }
 
-        /* Rest of the styles remain unchanged */
         .projects {
             padding: 8rem 5%;
         }
@@ -513,14 +519,14 @@
         <div class="nav-links">
             <a href="#about" class="nav-link">About</a>
             <a href="#work" class="nav-link">Work</a>
-            <a href="cv.html" class="nav-link">CV</a> <!-- Added CV link -->
+            <a href="cv.html" class="nav-link">CV</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
         <div class="hamburger">☰</div>
         <div class="mobile-nav">
             <a href="#about" class="nav-link">About</a>
             <a href="#work" class="nav-link">Work</a>
-            <a href="cv.html" class="nav-link">CV</a> <!-- Added CV link -->
+            <a href="cv.html" class="nav-link">CV</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
@@ -547,13 +553,13 @@
             </p>
             <div class="text-divider"></div>
             <p class="about-text arabic">
-                أنا محمد سمير، بخلفية في الهندسة المدنية. أتخصص في تحليل البيانات وتدريب الذكاء الاصطناعي، 
+                أنا محمد سمير، بخلفية في الهندسة المدنية. أتخصص في تحليل البيانات وتدريب الذك BenQ الاصطناعي، 
                 مقدمًا خبرة في تحويل البيانات الخام إلى رؤى عملية وتحسين مجموعات البيانات لنماذج الذكاء الاصطناعي. 
                 في تحليل البيانات، أوفر حلول تحليلية مخصصة وتقارير منظمة. في تدريب الذكاء الاصطناعي، أركز على 
                 تدوين البيانات، تدريب النماذج، وبنية التعلم الآلي لتعزيز أداء الذكاء الاصطناعي. هدفي هو تقديم 
                 حلول دقيقة تعتمد على البيانات ومصممة حسب احتياجات الأعمال.
             </p>
-            <a href="cv.html" class="view-cv-btn"> <!-- Added View CV button -->
+            <a href="cv.html" class="view-cv-btn">
                 View My CV
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M14 12l-4 4V8z"/>
@@ -682,8 +688,15 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const targetId = this.getAttribute('href').slice(1);
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                targetElement.scrollIntoView({
                     behavior: 'smooth'
+                });
+                // Track virtual pageview
+                gtag('event', 'page_view', {
+                    page_path: '/' + (targetId || 'home'),
+                    page_title: targetId ? targetId.charAt(0).toUpperCase() + targetId.slice(1) : 'Home'
                 });
             });
         });
@@ -726,6 +739,14 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
+        });
+
+        // Track form submissions
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            gtag('event', 'form_submission', {
+                event_category: 'Contact',
+                event_label: 'Contact Form'
+            });
         });
     </script>
 </body>
