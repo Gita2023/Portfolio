@@ -105,23 +105,35 @@
             max-width: 800px;
         }
 
-        .project-section {
+        .domain-section {
             padding: 8rem 5%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .project-section:nth-child(odd) {
             background-color: var(--bg-color);
             color: var(--text-color);
         }
 
-        .project-section:nth-child(even) {
+        .domain-section:nth-child(even) {
             background-color: var(--white-color);
             color: var(--text-dark);
+        }
+
+        .domain-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .domain-header h2 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-section {
+            margin-bottom: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .project-container {
@@ -157,11 +169,11 @@
             color: inherit;
         }
 
-        .project-section:nth-child(odd) .arabic-text {
+        .domain-section:nth-child(odd) .arabic-text {
             color: #ddd;
         }
 
-        .project-section:nth-child(even) .arabic-text {
+        .domain-section:nth-child(even) .arabic-text {
             color: #555;
         }
 
@@ -282,8 +294,16 @@
                 font-size: 1.2rem;
             }
 
-            .project-section {
+            .domain-section {
                 padding: 4rem 5%;
+            }
+
+            .domain-header h2 {
+                font-size: 2rem;
+            }
+
+            .project-section {
+                margin-bottom: 4rem;
             }
 
             .project-description h1 {
@@ -329,515 +349,381 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Data Analysis Projects</h1>
-            <p>Explore my collection of Power BI dashboards designed to transform raw data into actionable insights for businesses.</p>
+            <p>Explore my collection of Power BI dashboards designed to transform raw data into actionable insights for businesses, grouped by domain.</p>
         </div>
     </section>
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Customer Segmentation and Campaign Response Analysis</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Understand customer shopping behavior, identify the most valuable customers, predict campaign response rates, and enhance marketing decision-making.
+    <section class="domain-section">
+        <div class="domain-header">
+            <h2>Marketing</h2>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Customer Segmentation and Campaign Response Analysis</h1>
+                    <div class="english-text">
+                        To boost marketing campaigns for a business with 2,000 customers, I analyzed customer data to identify top responders. Using Power BI, I divided customers into three groups based on income and spending. Group 1, with an average income of $70,049, spent $1.66 million and favors premium offers. Group 2, earning $33,015, spent $1.47 million and responds to cost-effective deals. Group 3, with $57,471 income, spent $902,676 but could be encouraged to spend more. I used a predictive tool to highlight high-potential customers like ID 9.
+
+                        My analysis revealed a 28.84% campaign acceptance rate, with peaks up to 6.8% driven by top customers, indicating strong engagement opportunities.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Provide Group 1 with exclusive perks and early product access. Offer Group 2 budget-friendly bundles or small discounts. Engage Group 3 with limited-time promotions like “spend $50, get $10 off.” Target non-responders with personalized emails and timely offers, prioritizing high-potential customers like IDs 9, 13, and 17 to maximize results.
+                        </div>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Cleaned and visualized data using Power BI, built a predictive model with Python, applied Power BI’s clustering tool to segment customers by spending and income, and conducted descriptive and predictive analyses.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Identified top customers (R=5, F=5), achieved a campaign acceptance rate of 28.84%, predicted 94 responders with 54 responding, and segmented customers into high-income high spenders, moderate spenders, and low spenders.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Target top customers with exclusive offers, re-target other segments with tailored deals, and develop loyalty programs to retain valuable customers.
-                    </div>
-                </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        فهم سلوك التسوق للعملاء، تحديد العملاء الأكثر قيمة، التنبؤ بمعدلات استجابة الحملات، وتعزيز اتخاذ القرارات التسويقية.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم تنظيف البيانات وتصورها باستخدام Power BI، وبناء نموذج تنبؤي باستخدام Python، وتطبيق أداة التجميع في Power BI لتجزئة العملاء بناءً على الإنفاق والدخل، وإجراء تحليلات وصفية وتنبؤية.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم تحديد العملاء المميزين (R=5, F=5)، وتحقيق معدل قبول الحملة بنسبة 28.84%، والتنبؤ بـ 94 مستجيبًا مع استجابة 54، وتجزئة العملاء إلى مرتفعي الدخل والإنفاق، والمنفقين المعتدلين، والمنفقين المنخفضين.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        استهداف العملاء المميزين بعروض حصرية، إعادة استهداف الشرائح الأخرى بعروض مخصصة، وتطوير برامج ولاء للاحتفاظ بالعملاء القيمين.
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتحسين الحملات التسويقية لشركة تضم 2000 عميل، قمت بتحليل بيانات العملاء لتحديد أفضل المستجيبين. باستخدام Power BI، قسمت العملاء إلى ثلاث مجموعات بناءً على الدخل والإنفاق. المجموعة الأولى، بمتوسط دخل 70,049 دولار، أنفقت 1.66 مليون دولار وتفضل العروض المميزة. المجموعة الثانية، بدخل 33,015 دولار، أنفقت 1.47 مليون دولار وتستجيب للعروض الاقتصادية. المجموعة الثالثة، بدخل 57,471 دولار، أنفقت 902,676 دولار لكن يمكن تشجيعها على الإنفاق أكثر. استخدمت أداة تنبؤية لإبراز العملاء ذوي الإمكانيات العالية مثل ID 9.
+
+                        كشف تحليلي عن نسبة قبول حملات 28.84%، مع ذروات تصل إلى 6.8% بقيادة العملاء المميزين، مما يشير إلى فرص مشاركة قوية.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            قدّم للمجموعة الأولى امتيازات حصرية ووصولًا مبكرًا للمنتجات. قدّم للمجموعة الثانية حزمًا اقتصادية أو خصومات صغيرة. أشعل اهتمام المجموعة الثالثة بعروض محدودة المدة مثل "أنفق 50 دولارًا، احصل على خصم 10 دولارات". استهدف غير المستجيبين برسائل بريد إلكتروني مخصصة وعروض في الوقت المناسب، مع إعطاء الأولوية للعملاء ذوي الإمكانيات العالية مثل IDs 9 و13 و17 لتحقيق أقصى قدر من النتائج.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/_h0olAbntP0?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=_h0olAbntP0" target="_blank">Watch on YouTube</a>
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/_h0olAbntP0?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=_h0olAbntP0" target="_blank">Watch on YouTube</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Sales Performance Dashboard</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Aggregate and visualize sales data for strategic insights, identify top-performing regions and products, and support targeted marketing strategies.
+    <section class="domain-section">
+        <div class="domain-header">
+            <h2>Retail</h2>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Sales Performance Dashboard</h1>
+                    <div class="english-text">
+                        To grow a chocolate business, I analyzed sales data to uncover top-performing regions and products. I built a Power BI dashboard with heatmaps to highlight high-sales areas and charts to track product success, focusing on markets, sales team performance, and seasonal trends.
+
+                        My findings revealed the USA as the top market with $1 million in sales and a 59% profit margin, while Australia performed well but faced high costs. Salesperson Gigi Bohling led with $127,375 and a 58% margin. Smooth Silky Salty achieved an 81% profit margin, but Mint Chip Choco lagged at 44%. Sales peaked in May and September, showing seasonal opportunities.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Increase efforts in the USA and Australia to boost profits. Provide training for salespeople like Jehu Rudforth to improve performance. Address supply issues for top products like Smooth Silky Salty and enhance low-margin items. Launch promotions in May and September, and offer deals in slower months to maintain steady sales. Reduce costs in Australia to improve profitability.
+                        </div>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Aggregated sales data from CRM systems, POS terminals, and regional reports, built interactive Power BI visuals (line charts, heatmaps, slicers), and conducted descriptive analysis to uncover trends.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Identified top-performing regions contributing 60% of revenue, highlighted underperforming products for inventory optimization, and enabled targeted marketing campaigns, increasing regional sales by 10%.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Focus marketing efforts on high-performing regions, phase out low-performing products, and expand campaigns in emerging markets.
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتنمية أعمال الشوكولاتة، قمت بتحليل بيانات المبيعات للكشف عن المناطق والمنتجات ذات الأداء الأعلى. أنشأت لوحة تحكم في Power BI تحتوي على خرائط حرارية لإبراز المناطق ذات المبيعات العالية ومخططات لتتبع نجاح المنتجات، مع التركيز على الأسواق، أداء فريق المبيعات، والاتجاهات الموسمية.
+
+                        كشفت نتائجي أن الولايات المتحدة هي السوق الرائدة بمبيعات 1 مليون دولار وهامش ربح 59%، بينما أدت أستراليا جيدًا ولكن واجهت تكاليف عالية. قادت البائعة جيجي بوهلينج بمبيعات 127,375 دولار وهامش 58%. حقق Smooth Silky Salty هامش ربح 81%، لكن Mint Chip Choco تأخر عند 44%. بلغت المبيعات ذروتها في مايو وسبتمبر، مما يظهر فرصًا موسمية.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            زِد الجهود في الولايات المتحدة وأستراليا لتعزيز الأرباح. قدّم تدريبًا للبائعين مثل جيهو رودفورث لتحسين الأداء. عالج مشكلات التوريد للمنتجات الرائدة مثل Smooth Silky Salty وحسّن العناصر ذات الهامش المنخفض. أطلق عروضًا ترويجية في مايو وسبتمبر، وقدّم صفقات في الأشهر البطيئة للحفاظ على مبيعات مستقرة. قلل التكاليف في أستراليا لتحسين الربحية.
+                        </div>
                     </div>
                 </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تجميع بيانات المبيعات وتصورها للحصول على رؤى استراتيجية، تحديد المناطق والمنتجات ذات الأداء العالي، ودعم استراتيجيات التسويق المستهدفة.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم تجميع بيانات المبيعات من أنظمة CRM، ومحطات نقاط البيع، وتقارير المناطق، وبناء صور بصرية تفاعلية في Power BI (مخططات خطية، خرائط حرارية، أدوات تقطيع)، وإجراء تحليل وصفي للكشف عن الاتجاهات.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم تحديد المناطق ذات الأداء العالي التي تساهم بنسبة 60% من الإيرادات، وإبراز المنتجات ذات الأداء الضعيف لتحسين المخزون، وتمكين حملات تسويقية مستهدفة، مما زاد مبيعات المناطق بنسبة 10%.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        التركيز على جهود التسويق في المناطق ذات الأداء العالي، التخلص التدريجي من المنتجات ذات الأداء الضعيف، وتوسيع الحملات في الأسواق الناشئة.
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/IMad3YIrHnI?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=IMad3YIrHnI" target="_blank">Watch on YouTube</a>
                     </div>
                 </div>
             </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/IMad3YIrHnI?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=IMad3YIrHnI" target="_blank">Watch on YouTube</a>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Retail Revenue Tracker</h1>
+                    <div class="english-text">
+                        To optimize a retail business generating $5 million in revenue, I examined sales data to understand customer behavior and store performance. I created a Power BI dashboard with pie charts to highlight top-selling products and trend lines to identify peak sales months, focusing on customer demographics and store results.
+
+                        My findings showed that customers over 50 are the biggest spenders, contributing $910,000. Men (51%) and women (49%) purchase nearly equally. Soft drinks led sales at $720,000, while juices trailed at $50,000. Sales grew 9% in May and June, but January lagged at 7%. The Lee-Myers store exceeded its $30,080 goal with $43,220, while Novac PLC missed its $61,550 target.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Offer tailored promotions for customers over 50 to sustain their spending. Create balanced marketing for both men and women. Increase focus on soft drinks and explore ways to boost juice sales, such as new flavors. Amplify promotions during May and June, and provide additional support to stores like Novac PLC to meet their targets.
+                        </div>
+                    </div>
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتحسين أعمال التجزئة التي تحقق إيرادات 5 ملايين دولار، قمت بفحص بيانات المبيعات لفهم سلوك العملاء وأداء المتاجر. أنشأت لوحة تحكم في Power BI تحتوي على مخططات دائرية لإبراز المنتجات الأكثر مبيعًا وخطوط اتجاه لتحديد أشهر المبيعات القصوى، مع التركيز على التركيبة السكانية للعملاء ونتائج المتاجر.
+
+                        أظهرت نتائجي أن العملاء فوق 50 عامًا هم الأكثر إنفاقًا، حيث ساهموا بـ910,000 دولار. يشتري الرجال (51%) والنساء (49%) بشكل متساوٍ تقريبًا. تصدرت المشروبات الغازية المبيعات بـ720,000 دولار، بينما تأخرت العصائر عند 50,000 دولار. نمت المبيعات 9% في مايو ويونيو، لكن يناير تأخر عند 7%. تجاوز متجر Lee-Myers هدفه البالغ 30,080 دولار بتحقيق 43,220 دولار، بينما فشل Novac PLC في تحقيق هدفه البالغ 61,550 دولار.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            قدّم عروضًا ترويجية مخصصة للعملاء فوق 50 عامًا للحفاظ على إنفاقهم. أنشئ تسويقًا متوازنًا للرجال والنساء. زِد التركيز على المشروبات الغازية واستكشف طرقًا لتعزيز مبيعات العصائر، مثل النكهات الجديدة. عزز العروض الترويجية خلال مايو ويونيو، وقدّم دعمًا إضافيًا لمتاجر مثل Novac PLC لتحقيق أهدافها.
+                        </div>
+                    </div>
+                </div>
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/wshiyOY6a0I?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=wshiyOY6a0I" target="_blank">Watch on YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>E-Commerce Performance Analysis</h1>
+                    <div class="english-text">
+                        To enhance an online store’s $4 million in sales, I analyzed sales and website data to identify growth opportunities. I developed a Power BI dashboard with funnel charts to track customer journeys and visuals to spotlight top products, examining brands, stock levels, and discount impacts.
+
+                        My findings showed 125,000 units sold across 991 products, with clothing contributing $1.72 million (43%) and home products $1.14 million (29%). Brands like Amazon ($532,000) and Anyon excelled, and 844 products earned 5-star ratings. However, discounts over 20% reduced sales, and items like “FabricLA Comfort Shaggy” (3.50 rating) underperformed. Stock included 12,000 items for delivery, 8,000 for pickup, and 23 out of stock.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Enhance low-rated products like “FabricLA Comfort Shaggy” with improved photos or modest discounts. Prioritize clothing and home products, promoting brands like Amazon and Anyon. Replenish the 23 out-of-stock items and optimize pickup processes. Maintain discounts below 20% to preserve profits, and feature the 844 5-star products in marketing to drive sales.
+                        </div>
+                    </div>
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتعزيز مبيعات متجر إلكتروني بقيمة 4 ملايين دولار، قمت بتحليل بيانات المبيعات والموقع الإلكتروني لتحديد فرص النمو. طورت لوحة تحكم في Power BI تحتوي على مخططات قمعية لتتبع رحلات العملاء وصور بصرية لإبراز أفضل المنتجات، مع فحص العلامات التجارية، مستويات المخزون، وتأثيرات الخصومات.
+
+                        أظهرت نتائجي بيع 125,000 وحدة عبر 991 منتجًا، مع مساهمة الملابس بـ1.72 مليون دولار (43%) والمنتجات المنزلية بـ1.14 مليون دولار (29%). تفوقت علامات مثل Amazon (532,000 دولار) وAnyon، وحصل 844 منتجًا على تقييم 5 نجوم. ومع ذلك، قللت الخصومات فوق 20% من المبيعات، وأدى أداء منتجات مثل “FabricLA Comfort Shaggy” (تقييم 3.50) ضعيفًا. شمل المخزون 12,000 عنصر للتوصيل، 8,000 للاستلام، و23 نفدت من المخزون.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            حسّن المنتجات منخفضة التقييم مثل “FabricLA Comfort Shaggy” بصور أفضل أو خصومات معتدلة. أعطِ الأولوية للملابس والمنتجات المنزلية، مع الترويج لعلامات مثل Amazon وAnyon. أعد تخزين الـ23 عنصرًا الناقصة وحسّن عمليات الاستلام. حافظ على الخصومات دون 20% لحماية الأرباح، وأبرز الـ844 منتجًا ذات الـ5 نجوم في التسويق لزيادة المبيعات.
+                        </div>
+                    </div>
+                </div>
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/prdlBJYNqig?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=prdlBJYNqig" target="_blank">Watch on YouTube</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Income Statement Dashboard</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Provide clear financial performance insights, identify cost-saving opportunities, and support strategic financial planning.
+    <section class="domain-section">
+        <div class="domain-header">
+            <h2>Financial</h2>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Income Statement Dashboard</h1>
+                    <div class="english-text">
+                        To strengthen a business’s financial performance, I analyzed its income statement to identify growth and savings opportunities. I built a Power BI dashboard with bar charts to compare sales and expenses and trend lines to track financial progress, focusing on revenue and cost efficiency.
+
+                        My findings showed sales surged to $102,540, a 257% increase from $36,370 last year. Costs of goods dropped to $9,870 from $13,030, lifting profit before expenses to $119,880. After expenses and taxes, net profit reached $74,860, up 1,496% from $4,690. The West division outperformed with a 57.69% profit margin.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Continue reducing costs for goods and expenses to sustain high profits. Expand sales in the West division. Explore tax-saving strategies to lower the $24,950 tax bill. Invest in advertising or new products to maintain sales growth. Seek ways to reduce $2,730 in interest payments to increase savings.
+                        </div>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Collected financial data from ERP systems, developed Power BI dashboards with bar charts and trend lines, and analyzed profitability and cost trends.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Uncovered 15% cost-saving potential in operational expenses, identified stable profitability trends in core business units, and supported budget reallocation for growth initiatives.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Implement cost-cutting measures in identified areas, reinvest savings into high-growth units, and monitor trends quarterly for adjustments.
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتعزيز الأداء المالي لشركة، قمت بتحليل بيان الدخل الخاص بها لتحديد فرص النمو والتوفير. أنشأت لوحة تحكم في Power BI تحتوي على مخططات شريطية لمقارنة المبيعات والمصروفات وخطوط اتجاه لتتبع التقدم المالي، مع التركيز على الإيرادات وكفاءة التكاليف.
+
+                        أظهرت نتائجي ارتفاع المبيعات إلى 102,540 دولار، بزيادة 257% من 36,370 دولار العام الماضي. انخفضت تكاليف البضائع إلى 9,870 دولار من 13,030 دولار، مما رفع الربح قبل المصروفات إلى 119,880 دولار. بعد المصروفات والضرائب، بلغ صافي الربح 74,860 دولار، بزيادة 1,496% من 4,690 دولار. تفوقت المنطقة الغربية بهامش ربح 57.69%.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            استمر في تقليل تكاليف البضائع والمصروفات للحفاظ على أرباح عالية. وسّع المبيعات في المنطقة الغربية. استكشف استراتيجيات توفير الضرائب لخفض فاتورة الضرائب البالغة 24,950 دولار. استثمر في الإعلانات أو المنتجات الجديدة للحفاظ على نمو المبيعات. ابحث عن طرق لتقليل مدفوعات الفائدة البالغة 2,730 دولار لزيادة المدخرات.
+                        </div>
                     </div>
                 </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تقديم رؤى واضحة عن الأداء المالي، تحديد فرص توفير التكاليف، ودعم التخطيط المالي الاستراتيجي.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم جمع البيانات المالية من أنظمة ERP، وتطوير لوحات قيادة Power BI مع مخططات شريطية وخطوط الاتجاه، وتحليل اتجاهات الربحية والتكاليف.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم الكشف عن إمكانية توفير التكاليف بنسبة 15% في المصروفات التشغيلية، وتحديد اتجاهات ربحية مستقرة في الوحدات التجارية الأساسية، ودعم إعادة تخصيص الميزانية لمبادرات النمو.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        تنفيذ تدابير خفض التكاليف في المجالات المحددة، إعادة استثمار المدخرات في الوحدات ذات النمو العالي، ومراقبة الاتجاهات ربع السنوية للتعديلات.
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/1592LLIVKeg?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=1592LLIVKeg" target="_blank">Watch on YouTube</a>
                     </div>
                 </div>
             </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/1592LLIVKeg?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=1592LLIVKeg" target="_blank">Watch on YouTube</a>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Financial Insights Tracker</h1>
+                    <div class="english-text">
+                        To maximize a business’s financial efficiency, I analyzed sales and operational data to pinpoint strengths and weaknesses. I created a Power BI dashboard with gauges to monitor key metrics and KPI cards to highlight performance, focusing on markets, discounts, and historical trends.
+
+                        My findings indicated sales reached $92.31 million, up from $56.24 million last year, with profits climbing to $13.02 million. The U.S. led with $24.9 million in sales, and Channel Partners achieved a 27.78% profit margin. However, Enterprise (-4.12%) and Montana (-3.08%) showed losses. Discounts rose to $7.06 million, and products like Paseo and Velo performed strongly.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Expand sales efforts in the U.S. and Canada to sustain growth. Address losses in Enterprise and Montana through cost reductions or pricing adjustments. Limit discounts to under 20% to protect profits. Replicate strategies from the 2014 sales peak. Promote high-margin products like Paseo and Velo in upcoming campaigns.
+                        </div>
+                    </div>
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتعظيم الكفاءة المالية لشركة، قمت بتحليل بيانات المبيعات والعمليات لتحديد نقاط القوة والضعف. أنشأت لوحة تحكم في Power BI تحتوي على عدادات لمراقبة المقاييس الرئيسية وبطاقات KPI لإبراز الأداء، مع التركيز على الأسواق، الخصومات، والاتجاهات التاريخية.
+
+                        أشارت نتائجي إلى أن المبيعات بلغت 92.31 مليون دولار، ارتفاعًا من 56.24 مليون دولار العام الماضي، مع ارتفاع الأرباح إلى 13.02 مليون دولار. تصدرت الولايات المتحدة بمبيعات 24.9 مليون دولار، وحققت Channel Partners هامش ربح 27.78%. ومع ذلك، أظهرت Enterprise (-4.12%) وMontana (-3.08%) خسائر. ارتفعت الخصومات إلى 7.06 مليون دولار، وأدت منتجات مثل Paseo وVelo أداءً قويًا.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            وسّع جهود المبيعات في الولايات المتحدة وكندا للحفاظ على النمو. عالج الخسائر في Enterprise وMontana من خلال تقليل التكاليف أو تعديل الأسعار. قلل الخصومات إلى أقل من 20% لحماية الأرباح. كرر استراتيجيات ذروة المبيعات في 2014. روّج للمنتجات ذات الهامش العالي مثل Paseo وVelo في الحملات القادمة.
+                        </div>
+                    </div>
+                </div>
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/pR7ev1yuhuo?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=pR7ev1yuhuo" target="_blank">Watch on YouTube</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Financial Insights Tracker</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Optimize resource allocation through operational insights, identify workflow bottlenecks, and enhance operational efficiency.
+    <section class="domain-section">
+        <div class="domain-header">
+            <h2>Real Estate</h2>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Real-estate Development Dashboard</h1>
+                    <div class="english-text">
+                        To drive a real estate business forward, I analyzed CRM and sales data to identify high-growth opportunities. I developed a Power BI dashboard with maps to display regional sales and charts to track client performance, focusing on revenue trends and key clients.
+
+                        My findings showed revenue of $18.13 million in 2023, a dip to $4.67 million in 2024, and a 26% growth rebound in 2025. The West region led with $26.62 million, while the North ($1.17 million) and South ($282,270) underperformed. Atlas Construction Group contributed $31.46 million, but high discounts (44%) impacted profits, notably for clients like Pulse Edge LLC.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Strengthen partnerships with clients like Atlas to sustain 2025 growth. Analyze the $600,000 loss in February 2024 to prevent recurrence. Increase sales efforts in the West region. Reduce discounts from 44% to improve profitability, especially for large clients. Enhance marketing in the North and South regions to boost performance.
+                        </div>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Compiled operational data from APIs, created dynamic Power BI dashboards (gauges, KPI cards), and conducted bottleneck and efficiency analyses.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Identified bottlenecks causing 20% delays in workflows, optimized resource allocation, improving efficiency by 12%, and reduced operational costs by streamlining processes.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Automate bottleneck-prone processes, reallocate resources to high-impact areas, and conduct monthly efficiency reviews.
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لدفع أعمال عقارية قدمًا، قمت بتحليل بيانات CRM والمبيعات لتحديد فرص النمو العالية. طورت لوحة تحكم في Power BI تحتوي على خرائط لعرض المبيعات الإقليمية ومخططات لتتبع أداء العملاء، مع التركيز على اتجاهات الإيرادات والعملاء الرئيسيين.
+
+                        أظهرت نتائجي إيرادات بلغت 18.13 مليون دولار في 2023، انخفاضًا إلى 4.67 مليون دولار في 2024، وانتعاشًا بنمو 26% في 2025. تصدرت المنطقة الغربية بـ26.62 مليون دولار، بينما أدت المنطقتان الشمالية (1.17 مليون دولار) والجنوبية (282,270 دولار) أداءً ضعيفًا. ساهمت Atlas Construction Group بـ31.46 مليون دولار، لكن الخصومات العالية (44%) أثرت على الأرباح، خاصة لعملاء مثل Pulse Edge LLC.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            عزز الشراكات مع عملاء مثل Atlas للحفاظ على نمو 2025. حلل خسارة 600,000 دولار في فبراير 2024 لمنع التكرار. زِد جهود المبيعات في المنطقة الغربية. قلل الخصومات من 44% لتحسين الربحية، خاصة للعملاء الكبار. حسّن التسويق في المناطق الشمالية والجنوبية لتعزيز الأداء.
+                        </div>
                     </div>
                 </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تحسين تخصيص الموارد من خلال رؤى تشغيلية، تحديد اختناقات سير العمل، وتعزيز الكفاءة التشغيلية.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم تجميع بيانات التشغيل من واجهات برمجة التطبيقات، وإنشاء لوحات قيادة ديناميكية في Power BI (عدادات، بطاقات KPI)، وإجراء تحليلات للاختناقات والكفاءة.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم تحديد اختناقات تسببت في تأخيرات بنسبة 20% في سير العمل، وتحسين تخصيص الموارد، مما رفع الكفاءة بنسبة 12%، وخفض التكاليف التشغيلية من خلال تبسيط العمليات.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        أتمتة العمليات المعرضة للاختناقات، إعادة تخصيص الموارد إلى المجالات ذات التأثير العالي، وإجراء مراجعات كفاءة شهرية.
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/62yjpAHsLzY?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=62yjpAHsLzY" target="_blank">Watch on YouTube</a>
                     </div>
                 </div>
             </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/pR7ev1yuhuo?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=pR7ev1yuhuo" target="_blank">Watch on YouTube</a>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Real-estate Prices in Saudi Arabia Dashboard</h1>
+                    <div class="english-text">
+                        To guide real estate investments in Saudi Arabia, I analyzed rental prices across Jeddah, Riyadh, Dammam, and Khobar. I collected data on 3,718 properties and built a Power BI dashboard with maps to illustrate price trends and filters to compare cities.
+
+                        My analysis highlighted Jeddah with the highest average rent at 112,882 SAR, followed by Riyadh at 94,292 SAR. Dammam (63,282 SAR) and Khobar (79,483 SAR) offered lower rents. Prices have risen in Riyadh and Jeddah since 2013, with some properties reaching $1.7 million and others as low as $1,000.
+
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Target investments in Jeddah and Riyadh for high rental yields and increasing demand. Recommend Dammam and Khobar for customers seeking affordable options. Advise developers to study price variation factors, such as infrastructure, and create projects that align with market and residential needs. Monitor price trends regularly to stay competitive.
+                        </div>
+                    </div>
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتوجيه الاستثمارات العقارية في السعودية، قمت بتحليل أسعار الإيجارات في جدة، الرياض، الدمام، والخلر. جمعت بيانات عن 3,718 عقارًا وأنشأت لوحة تحكم في Power BI تحتوي على خرائط لتوضيح اتجاهات الأسعار وفلاتر لمقارنة المدن.
+
+                        سلط تحليلي الضوء على جدة بمتوسط إيجار أعلى عند 112,882 ريال سعودي، تليها الرياض عند 94,292 ريال سعودي. قدمت الدمام (63,282 ريال سعودي) والخير (79,483 ريال سعودي) إيجارات أقل. ارتفعت الأسعار في الرياض وجدة منذ 2013، حيث وصلت بعض العقارات إلى 1.7 مليون دولار، بينما أخرى منخفضة تصل إلى 1000 دولار.
+
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            استهدف الاستثمارات في جدة والرياض لعوائد إيجارية عالية وطلب متزايد. أوصي بالدمام والخبر للعملاء الباحثين عن خيارات ميسورة. انصح المطورين بدراسة عوامل اختلاف الأسعار، مثل البنية التحتية، وإنشاء مشاريع تتماشى مع احتياجات السوق والسكان. راقب اتجاهات الأسعار بانتظام لتبقى منافسًا.
+                        </div>
+                    </div>
+                </div>
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube.com/embed/YxttuwQRih8?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=YxttuwQRih8" target="_blank">Watch on YouTube</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Retail Revenue Tracker</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Track and visualize retail revenue patterns, improve financial planning, and enhance cash flow management.
+    <section class="domain-section">
+        <div class="domain-header">
+            <h2>Operations</h2>
+        </div>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>Crane Service Provider Dashboard</h1>
+                    <div class="english-text">
+                        To improve delivery operations for a crane service provider, I analyzed data on workforce, orders, equipment, and projects. I created a Power BI dashboard with Gantt charts to manage schedules and heatmaps to identify bottlenecks, targeting attendance, supply chain, and efficiency.
+
+                        My findings revealed significant challenges: attendance was only 36%, with 32% absences affecting progress. Only 54 of 100 orders were delivered, with supplier errors at 48%. Equipment downtime reached 64%, costing $4,000 in repairs. However, 39 projects were completed without safety incidents, a notable strength.
+
+                        <div class="stage">
+                            <div class="stage-title">Offers:</div>
+                            Implement training and incentives to boost employee attendance and compliance. Collaborate with suppliers to reduce errors and ensure timely deliveries. Offer predictive maintenance to minimize equipment downtime, particularly for sensor issues. Optimize schedules to accelerate project completion and extend safety practices to other sites.
+                        </div>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Extracted retail POS data, designed Power BI visuals (waterfall charts, pie charts), and analyzed revenue and cash flow trends.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Highlighted seasonal cash flow patterns impacting liquidity, identified 8% revenue growth in key product lines, and supported accurate financial forecasting.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Adjust inventory for seasonal demand, increase investment in high-growth products, and review cash flow quarterly.
-                    </div>
-                </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تتبع وتصور أنماط إيرادات التجزئة، تحسين التخطيط المالي، وتعزيز إدارة التدفق النقدي.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم استخراج بيانات نقاط البيع في التجزئة، وتصميم صور بصرية في Power BI (مخططات شلالية، مخططات دائرية)، وتحليل اتجاهات الإيرادات والتدفق النقدي.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم إبراز أنماط التدفق النقدي الموسمية التي تؤثر على السيولة، وتحديد نمو الإيرادات بنسبة 8% في خطوط المنتجات الرئيسية، ودعم التنبؤ المالي الدقيق.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        تعديل المخزون للطلب الموسمي، زيادة الاستثمار في المنتجات ذات النمو العالي، ومراجعة التدفق النقدي ربع السنوي.
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتحسين عمليات التسليم لمقدم خدمة الرافعات، قمت بتحليل بيانات القوى العاملة، الطلبات، المعدات، والمشاريع. أنشأت لوحة تحكم في Power BI تحتوي على مخططات جانت لإدارة الجداول الزمنية وخرائط حرارية لتحديد الاختناقات، مستهدفًا الحضور وسلسلة التوريد والكفاءة.
+
+                        كشفت نتائجي عن تحديات كبيرة: كان الحضور 36% فقط، مع تأثير الغيابات بنسبة 32% على التقدم. تم تسليم 54 من 100 طلب فقط، مع أخطاء الموردين بنسبة 48%. وصل توقف المعدات إلى 64%، مما كلف 4,000 دولار في الإصلاحات. ومع ذلك، تم إكمال 39 مشروعًا دون حوادث أمان، وهي نقطة قوة بارزة.
+
+                        <div class="stage">
+                            <div class="stage-title">العروض:</div>
+                            نفذ التدريب والحوافز لزيادة حضور الموظفين والالتزام. تعاون مع الموردين لتقليل الأخطاء وضمان التسليم في الوقت المحدد. قدم صيانة تنبؤية لتقليل توقف المعدات، خاصة لمشكلات المستشعرات. حسّن الجداول الزمنية لتسريع إكمال المشاريع وقوِّ ممارسات السلامة عبر المواقع الأخرى.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/wshiyOY6a0I?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=wshiyOY6a0I" target="_blank">Watch on YouTube</a>
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube.com/embed/vj1AFfD6neQ?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=vj1AFfD6neQ" target="_blank">Watch on YouTube</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Real-estate Development Dashboard</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Understand customer preferences in real estate, support targeted marketing campaigns, and enhance customer acquisition.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Sourced CRM and survey data, built Power BI dashboards with demographic maps, and conducted preference and demographic analyses.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Identified young professionals as primary buyers (45% of demand), highlighted preferences for urban properties, and increased campaign conversions by 18% through targeting.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Focus campaigns on young professionals, prioritize urban property developments, and expand demographic surveys.
-                    </div>
-                </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        فهم تفضيلات العملاء في العقارات، دعم حملات التسويق المستهدفة، وتعزيز اكتساب العملاء.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم الحصول على بيانات CRM والاستطلاعات، وبناء لوحات قيادة Power BI مع خرائط ديموغرافية، وإجراء تحليلات التفضيلات والتركيبة السكانية.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم تحديد المحترفين الشباب كمشترين رئيسيين (45% من الطلب)، وإبراز التفضيلات للعقارات الحضرية، وزيادة تحويلات الحملات بنسبة 18% من خلال الاستهداف.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        التركيز على الحملات التي تستهدف المحترفين الشباب، إعطاء الأولوية لتطوير العقارات الحضرية، وتوسيع الاستطلاعات الديموغرافية.
-                    </div>
-                </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/62yjpAHsLzY?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=62yjpAHsLzY" target="_blank">Watch on YouTube</a>
-                </div>
-            </div>
+    <section class="domain-section">
+        <div class="domain-header">
+            <h2>Business Analysis</h2>
         </div>
-    </section>
+        <div class="project-section">
+            <div class="project-container">
+                <div class="project-description">
+                    <h1>AD Works Analysis</h1>
+                    <div class="english-text">
+                        To enhance a business’s $78 million revenue stream, I analyzed financial and operational data to identify growth opportunities. I built a Power BI tool with KPI cards to track metrics and product trends to evaluate sales across regions, products, and seasons.
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Real-estate Prices in Saudi Arabia Dashboard</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Analyze real-estate price trends, identify high-growth investment areas, and support market decision-making.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Collected pricing data from listings, implemented Power BI heatmaps and price filters, and analyzed market and price trends.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Identified Riyadh and Jeddah as high-growth areas (25% price increase), highlighted demand-driven price trends, and supported investment decisions for clients.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Prioritize investments in Riyadh and Jeddah, monitor market trends monthly, and expand data sources for accuracy.
-                    </div>
-                </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تحليل اتجاهات أسعار العقارات، تحديد مناطق الاستثمار ذات النمو العالي، ودعم اتخاذ القرارات في السوق.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم جمع بيانات التسعير من القوائم، وتنفيذ خرائط حرارية ومرشحات الأسعار في Power BI، وتحليل اتجاهات السوق والأسعار.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم تحديد الرياض وجدة كمناطق ذات نمو عالٍ (زيادة في الأسعار بنسبة 25%)، وإبراز اتجاهات الأسعار المدفوعة بالطلب، ودعم قرارات الاستثمار للعملاء.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        إعطاء الأولوية للاستثمارات في الرياض وجدة، مراقبة اتجاهات السوق شهريًا، وتوسيع مصادر البيانات للدقة.
-                    </div>
-                </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube.com/embed/YxttuwQRih8?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=YxttuwQRih8" target="_blank">Watch on YouTube</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                        I found that Specialty Bike Shops led with $31.7M in revenue and 27,000 transactions. The Middle East region dominated with $42.6 million in sales, but down Oman (-6% margin) and Tunisia (-4%) struggled. Half-Finger Gloves grew 25.95%, while Cable Lock dropped 12%. The profit margin held at 1%, with active resellers falling from 555 in 2019 to 453 in 2022. Sales peaked in November and September.
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>Crane Service Provider Dashboard</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Optimize crane scheduling and equipment use, reduce operational downtime, and enhance project efficiency.
+                        <div class="stage">
+                            <div class="stage-title">Recommendations:</div>
+                            Enhance support for Specialty Bike Shops with incentives to sustain momentum. Investigate cost inefficiencies in Oman and Tunisia to boost profitability. Discontinue low-margin products like Cable Lock and promote high-performers like Half-Finger Gloves. Launch targeted campaigns in November and December to leverage peak seasons. Offer training and rewards to re-engage resellers and streamline operations to increase profit margins.
+                        </div>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Gathered scheduling and equipment data, crafted Power BI dashboards (Gantt charts, heatmaps), and analyzed scheduling and downtime patterns.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Reduced downtime by 15% through optimized scheduling, improved equipment utilization by 10%, and enhanced project delivery timelines.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Implement automated scheduling tools, conduct regular equipment maintenance, and review scheduling weekly.
-                    </div>
-                </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تحسين جدولة الرافعات واستخدام المعدات، تقليل وقت التوقف التشغيلي، وتعزيز كفاءة المشروع.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم جمع بيانات الجدولة والمعدات، وتصميم لوحات قيادة Power BI (مخططات جانت، خرائط حرارية)، وتحليل أنماط الجدولة ووقت التوقف.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تم تقليل وقت التوقف بنسبة 15% من خلال الجدولة المحسنة، وتحسين استخدام المعدات بنسبة 10%، وتعزيز جداول تسليم المشروع.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        تنفيذ أدوات جدولة آلية، إجراء صيانة دورية للمعدات، ومراجعة الجدولة أسبوعيًا.
-                    </div>
-                </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube.com/embed/vj1AFfD6neQ?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=vj1AFfD6neQ" target="_blank">Watch on YouTube</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="text-divider"></div>
+                    <div class="arabic-text">
+                        لتعزيز إيرادات شركة بقيمة 78 مليون دولار، قمت بتحليل البيانات المالية والتشغيلية لتحديد فرص النمو. أنشأت أداة Power BI تحتوي على بطاقات KPI واتجاهات المنتجات لتقييم المبيعات عبر المناطق والمنتجات والمواسم.
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>AD Works Business Analysis Summary</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Evaluate business performance metrics, identify growth opportunities, and support strategic decision-making for AD Works.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Integrated data from financial reports and operational logs, developed Power BI dashboards with KPI cards and trend charts, and performed comparative and trend analyses.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Specialty Bike Shop led with $37.4M revenue and 27K transactions; Egypt outperformed ($4M) while Oman recorded losses (-$82K). Half-Finger Gloves showed profit, unlike Cable Lock - Solver. Revenue ranged $24M–$78M with 1–2% margins. Egypt and Lebanon excelled, Oman and Tunisia underperformed.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Enhance reseller retention, review Oman’s losses, phase out underperforming products, focus on cost control and pricing to improve margins, expand in Egypt/Lebanon, and address inefficiencies in Oman/Tunisia.
-                    </div>
-                </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تقييم مقاييس أداء الأعمال، تحديد فرص النمو، ودعم اتخاذ القرارات الاستراتيجية لشركة AD Works.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم دمج البيانات من التقارير المالية وسجلات العمليات، وتطوير لوحات قيادة Power BI مع بطاقات KPI ومخططات الاتجاه، وإجراء تحليلات مقارنة واتجاهات.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تصدر Specialty Bike Shop بإيرادات 37.4 مليون دولار و27 ألف عملية، وتفوقت مصر (4 مليون دولار) بينما سجلت عُمان خسائر (-82 ألف دولار). حققت قفازات نصف إصبع أرباحًا، على عكس Cable Lock - Solver. تراوحت الإيرادات بين 24–78 مليون دولار مع هوامش 1–2%. تفوقت مصر ولبنان، بينما تأخرت عُمان وتونس.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        تعزيز الاحتفاظ بالموزعين، مراجعة خسائر عُمان، إيقاف المنتجات الخاسرة، التركيز على تقليل التكاليف وتعديل الأسعار لتحسين الهوامش، التوسع في مصر ولبنان، ومعالجة عدم الكفاءة في عُمان وتونس.
-                    </div>
-                </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/KppZJ-nwAxU?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=KppZJ-nwAxU" target="_blank">Watch on YouTube</a>
-                </div>
-            </div>
-        </div>
-    </section>
+                        I found that Specialty Bike Shops led with $31.7M in sales and 27,000 transactions. The Middle East region excelled with $42M in revenue, though Oman (-6.5% margin) and Tunisia (-4%) faced challenges. Half-Finger Gloves grew 25.95%, while Cable Lock fell 12%. The profit margin remained 1%, and active resellers declined from 555 in 2019 to 453 in 2022. Sales surged in November and December.
 
-    <section class="project-section">
-        <div class="project-container">
-            <div class="project-description">
-                <h1>E-Commerce Performance Analysis</h1>
-                <div class="english-text">
-                    <div class="stage">
-                        <div class="stage-title">Goals:</div>
-                        Analyze e-commerce platform performance, optimize conversion rates, and enhance customer retention strategies.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Methodology:</div>
-                        Collected data from web analytics and sales platforms, created Power BI visuals (funnel charts, cohort analysis), and conducted performance and customer behavior analyses.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Results:</div>
-                        Generated $4M revenue, with Clothing ($1.73M) and Home ($1.45M) leading. Sold 125K units across 991 products; 844 products rated 4+. Low-priced items and 0–10% discounts drove sales, while Toys underperformed and high discounts reduced revenue.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">Recommendations:</div>
-                        Expand Clothing, Home, and brands like A.J., improve low-rated popular products, reassess Toys and promote pickup options, focus on affordable pricing, and avoid deep discounts.
+                        <div class="stage">
+                            <div class="stage-title">التوصيات:</div>
+                            عزز دعم متاجر الدراجات المتخصص Methods of specialized bike shopsة بحوافز للحفاظ على الزخم. تحقق من عدم كفاءة التكاليف في عمان وتونس لتعزيز الربحية. أوقف المنتجات ذات الهامش المنخفض مثل Cable Lock وروّج للمنتجات عالية الأداء مثل قفازات نصف إصبع. أطلق حملات مستهدفة في نوفمبر وديسمبر للاستفادة من مواسم الذروة. قدّم تدريبًا ومكافآت لإعادة إشعال الموزعين وتبسيط العمليات لزيادة هوامش الربح.
+                        </div>
                     </div>
                 </div>
-                <div class="text-divider"></div>
-                <div class="arabic-text">
-                    <div class="stage">
-                        <div class="stage-title">الأهداف:</div>
-                        تحليل أداء منصة التجارة الإلكترونية، تحسين معدلات التحويل، وتعزيز استراتيجيات الاحتفاظ بالعملاء.
+                <div class="project-video-container">
+                    <iframe class="project-video" src="https://www.youtube.com/embed/KppZJ-nwAxU?enablejsapi=1" allowfullscreen></iframe>
+                    <div class="watch-on-youtube">
+                        <a href="https://www.youtube.com/watch?v=KppZJ-nwAxU" target="_blank">Watch on YouTube</a>
                     </div>
-                    <div class="stage">
-                        <div class="stage-title">المنهجية:</div>
-                        تم جمع البيانات من تحليلات الويب ومنصات المبيعات، وإنشاء صور بصرية في Power BI (مخططات القمع، تحليل الأتراب)، وإجراء تحليلات الأداء وسلوك العملاء.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">النتائج:</div>
-                        تحقيق إيرادات 4 مليون دولار، تصدرت الملابس (1.73 مليون) والمنزل (1.45 مليون). بيع 125 ألف وحدة عبر 991 منتجًا، 844 منتجًا بتقييم 4+. المنتجات الرخيصة وخصومات 0–10% عززت المبيعات، بينما تأخرت الألعاب وقللت الخصومات العالية الإيرادات.
-                    </div>
-                    <div class="stage">
-                        <div class="stage-title">التوصيات:</div>
-                        توسيع الملابس والمنزل والعلامات مثل A.J.، تحسين المنتجات الشائعة ذات التقييم المنخفض، إعادة تقييم الألعاب والترويج للاستلام، التركيز على الأسعار المناسبة، وتجنب الخصومات الكبيرة.
-                    </div>
-                </div>
-            </div>
-            <div class="project-video-container">
-                <iframe class="project-video" src="https://www.youtube-nocookie.com/embed/prdlBJYNqig?enablejsapi=1" allowfullscreen></iframe>
-                <div class="watch-on-youtube">
-                    <a href="https://www.youtube.com/watch?v=prdlBJYNqig" target="_blank">Watch on YouTube</a>
                 </div>
             </div>
         </div>
