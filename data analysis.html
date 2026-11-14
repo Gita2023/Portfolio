@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLF5S001QF"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VLF5S001QF');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ORMITA Analytics Solutions | Data Analysis Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00ff88;
+            --card-bg: #161616;
+            --text-dark: #333;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        .domain-section {
+            padding: 8rem 5%;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .domain-section:nth-child(even) {
+            background-color: var(--white-color);
+            color: var(--text-dark);
+        }
+
+        .domain-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .domain-header h2 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-section {
+            margin-bottom: 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .project-description {
+            margin-bottom: 4rem;
+        }
+
+        .project-description h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .english-text, .arabic-text {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .english-text {
+            direction: ltr;
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-weight: 300;
+            color: inherit;
+        }
+
+        .domain-section:nth-child(odd) .arabic-text {
+            color: #ddd;
+        }
+
+        .domain-section:nth-child(even) .arabic-text {
+            color: #555;
+        }
+
+        .stage {
+            margin-bottom: 1rem;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .text-divider {
+            height: 2rem;
+            width: 100px;
+            margin: 2rem auto;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .project-video-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .project-video-container:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .project-video {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        .watch-on-youtube {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .watch-on-youtube a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .watch-on-youtube a:hover {
+            background-color: #00ccff;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #00ccff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .mobile-nav-links.active {
+                display: flex;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-color);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .domain-section {
+                padding: 4rem 5%;
+            }
+
+            .domain-header h2 {
+                font-size: 2rem;
+            }
+
+            .project-section {
+                margin-bottom: 4rem;
+            }
+
+            .project-description h1 {
+                font-size: 1.8rem;
+            }
+
+            .english-text, .arabic-text {
+                font-size: 0.95rem;
+            }
+
+            .stage-title {
+                font-size: 1rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+
+            .project-video {
+                height: 300px;
+            }
+
+            .watch-on-youtube a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    
+        /* ORMITA brand refresh: deep navy, teal and accessible contrast */
+        :root {
+            --bg-color: #071827;
+            --text-color: #f4f7fb;
+            --accent-color: #22c6b8;
+            --card-bg: #10283a;
+            --text-dark: #172b3a;
+        }
+        .arabic, .arabic-text { line-height: 1.95; }
+        .english-text { line-height: 1.8; }
+        .stage { line-height: 1.8; }
+        
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-logo">ORMITA</div>
+<div class="nav-links">
+<a class="nav-link" href="index.html">Back to Home</a>
+</div>
+<div class="mobile-menu" onclick="toggleMenu()">☰</div>
+<div class="mobile-nav-links">
+<a class="nav-link" href="index.html">Back to Home</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<h1>Data Analysis Projects</h1>
+<p>Explore business-focused Power BI case studies across marketing, retail, finance, real estate and operations. Each project explains the business question, the analysis approach, the main findings and practical actions suggested by the data.<span class="arabic-text">استكشف دراسات حالة باستخدام Power BI في مجالات التسويق والتجزئة والتمويل والعقارات والعمليات. يوضح كل مشروع سؤال العمل، ومنهجية التحليل، وأبرز النتائج، والإجراءات العملية التي تقترحها البيانات.</span></p>
+</div>
+</section>
+<section class="domain-section">
+<div class="domain-header">
+<h2>Marketing</h2>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Customer Segmentation and Campaign Response Analysis</h1>
+<div class="english-text"><p>Marketing teams need to know which customers are most likely to respond—and which offer is right for each group. This Power BI analysis segments a dataset of 2,000 customers by income and spending, then uses predictive scoring to help prioritize high-potential prospects.</p><p>The analysis identified three distinct customer groups: the highest-income group generated $1.66M in spending, the second group generated $1.47M, and the third generated $902,676. Overall campaign acceptance was 28.84%. Predictive scoring also highlighted individual high-potential customers, including IDs 9, 13 and 17.</p><div class="stage"><div class="stage-title">Recommendations</div> Build premium campaigns for the highest-value segment, value-led bundles for price-sensitive customers, and targeted incentives to increase spending among the third group. Use personalized follow-ups for non-responders and prioritize high-potential leads.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تحتاج فرق التسويق إلى معرفة العملاء الأكثر احتمالاً للاستجابة، والعرض الأنسب لكل فئة. يقسم هذا التحليل باستخدام Power BI بيانات 2,000 عميل وفق الدخل والإنفاق، ثم يستفيد من التقييم التنبؤي للمساعدة في تحديد العملاء ذوي الإمكانات الأعلى.</p><p>كشف التحليل عن ثلاث شرائح مختلفة: حققت الشريحة الأعلى دخلاً إنفاقاً قدره 1.66 مليون دولار، وحققت الشريحة الثانية 1.47 مليون دولار، بينما بلغ إنفاق الشريحة الثالثة 902,676 دولاراً. وبلغ معدل قبول الحملات الإجمالي 28.84%. كما ساعد التقييم التنبؤي في إبراز عملاء ذوي إمكانات مرتفعة، منهم العملاء ذوو المعرفات 9 و13 و17.</p><div class="stage"><div class="stage-title">التوصيات</div> تخصيص عروض مميزة للشريحة الأعلى قيمة، وحزم اقتصادية للعملاء الأكثر حساسية للسعر، وحوافز محددة لزيادة إنفاق الشريحة الثالثة. كما يُوصى بمتابعة غير المستجيبين برسائل مخصصة وإعطاء الأولوية للعملاء ذوي الإمكانات المرتفعة.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/_h0olAbntP0?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=_h0olAbntP0" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Marketing Navigator Analysis</h1>
+<div class="english-text"><p>This dashboard brings marketing, sales and subscription indicators into one Power BI view. It is designed to help decision-makers compare campaign performance, understand customer retention, and identify the products and subscription offers contributing most to revenue.</p><p>The source analysis reports $8.11M in revenue, a 31.2% overall ROI and a 68% profit rate. Campaigns generated 42K conversions at a 16% conversion rate, while the strongest campaign reached 44%. Premium subscriptions contributed $2.34M, and 20–30-day subscriptions were a notable revenue segment.</p><div class="stage"><div class="stage-title">Recommendations</div> Review low-ROI campaigns and apply lessons from the strongest performers. Strengthen retention and repeat purchasing through loyalty offers, test the 20–30-day subscription range, and direct budget toward campaigns with stronger conversion and return.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تجمع لوحة التحكم مؤشرات التسويق والمبيعات والاشتراكات في عرض موحد باستخدام Power BI. وتهدف إلى مساعدة متخذي القرار على مقارنة أداء الحملات، وفهم الاحتفاظ بالعملاء، وتحديد المنتجات وعروض الاشتراك الأكثر مساهمة في الإيرادات.</p><p>يشير التحليل الأصلي إلى إيرادات قدرها 8.11 مليون دولار، وعائد استثمار إجمالي 31.2%، ومعدل ربح 68%. وحققت الحملات 42 ألف عملية تحويل بمعدل تحويل 16%، بينما وصلت أفضل حملة إلى 44%. كما ساهمت الاشتراكات المميزة بـ2.34 مليون دولار، وبرزت فئة الاشتراكات التي تتراوح مدتها بين 20 و30 يوماً.</p><div class="stage"><div class="stage-title">التوصيات</div> مراجعة الحملات ذات العائد المنخفض والاستفادة من أساليب الحملات الأفضل أداءً. وتعزيز الاحتفاظ بالعملاء والشراء المتكرر عبر برامج الولاء، واختبار عروض الاشتراك لمدة 20–30 يوماً، وتوجيه الميزانية نحو الحملات الأعلى تحويلاً وعائداً.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube.com/embed/QWl7YBCWCPA?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=QWl7YBCWCPA" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="domain-section">
+<div class="domain-header">
+<h2>Retail</h2>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Sales Performance Dashboard</h1>
+<div class="english-text"><p>This Power BI dashboard examines sales for a chocolate business across markets, products, salespeople and seasonal periods. Heatmaps and trend visuals make it easier to compare regional performance, spot high-margin products and understand when demand is strongest.</p><p>The USA was the leading market with $1M in sales and a 59% profit margin. Smooth Silky Salty recorded an 81% margin, while Mint Chip Choco recorded 44%. Sales peaked in May and September. The leading salesperson recorded $127,375 in sales with a 58% margin.</p><div class="stage"><div class="stage-title">Recommendations</div> Prioritize profitable markets and products, investigate cost pressure in Australia, support salespeople who need coaching, and plan promotions around the May and September peaks. Review supply availability for top-selling products.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تفحص لوحة Power BI مبيعات نشاط تجاري للشوكولاتة عبر الأسواق والمنتجات وأداء مندوبي المبيعات والمواسم. وتساعد الخرائط الحرارية ومخططات الاتجاه على مقارنة أداء المناطق، واكتشاف المنتجات الأعلى هامشاً، وفهم الفترات التي يرتفع فيها الطلب.</p><p>كانت الولايات المتحدة السوق الأولى بمبيعات بلغت مليون دولار وهامش ربح 59%. وسجل منتج Smooth Silky Salty هامشاً قدره 81%، مقابل 44% لمنتج Mint Chip Choco. وبلغت المبيعات ذروتها في مايو وسبتمبر. كما سجل مندوب المبيعات الأعلى أداءً مبيعات بقيمة 127,375 دولاراً وهامشاً قدره 58%.</p><div class="stage"><div class="stage-title">التوصيات</div> إعطاء الأولوية للأسواق والمنتجات الأكثر ربحية، ومراجعة أسباب ارتفاع التكاليف في أستراليا، وتقديم الدعم والتدريب لمندوبي المبيعات الذين يحتاجون إلى تحسين الأداء. كما يُوصى بتخطيط العروض الترويجية حول ذروتي مايو وسبتمبر ومراجعة توافر المنتجات الأكثر مبيعاً.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/IMad3YIrHnI?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=IMad3YIrHnI" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Retail Revenue Tracker</h1>
+<div class="english-text"><p>This dashboard explores a retail business with approximately $5M in revenue. It connects product sales, customer demographics, monthly trends and store-level results to give managers a clearer view of what is driving revenue and where targets are being missed.</p><p>Customers over 50 contributed $910K in spending. Purchases were nearly evenly split between men (51%) and women (49%). Soft drinks led product sales at $720K, while juices recorded $50K. The Lee-Myers store exceeded its $30,080 target with $43,220; Novac PLC fell short of its $61,550 target.</p><div class="stage"><div class="stage-title">Recommendations</div> Use customer insights to shape relevant promotions, protect the strong performance of soft drinks, test ways to grow juice sales, and review store-specific action plans—particularly for locations below target. Align campaigns with stronger sales months.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تستكشف لوحة التحكم أداء نشاط تجزئة يحقق إيرادات تقارب 5 ملايين دولار. وتربط بين مبيعات المنتجات وخصائص العملاء والاتجاهات الشهرية ونتائج الفروع، لتمنح الإدارة رؤية أوضح لمصادر الإيرادات والفروع التي لم تحقق أهدافها.</p><p>ساهم العملاء الذين تزيد أعمارهم على 50 عاماً بإنفاق قدره 910 آلاف دولار. وكانت المشتريات متقاربة بين الرجال (51%) والنساء (49%). وتصدرت المشروبات الغازية المبيعات بقيمة 720 ألف دولار، مقابل 50 ألف دولار للعصائر. وتجاوز فرع Lee-Myers هدفه البالغ 30,080 دولاراً بتحقيق 43,220 دولاراً، بينما لم يحقق Novac PLC هدفه البالغ 61,550 دولاراً.</p><div class="stage"><div class="stage-title">التوصيات</div> استخدام بيانات العملاء لتصميم عروض أكثر ملاءمة، والحفاظ على أداء المشروبات الغازية، واختبار أساليب لزيادة مبيعات العصائر. كما يُوصى بوضع خطط تحسين خاصة بالفروع التي تقل عن أهدافها، وربط الحملات بالأشهر الأعلى مبيعاً.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/wshiyOY6a0I?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=wshiyOY6a0I" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>E-Commerce Performance Analysis</h1>
+<div class="english-text"><p>This Power BI project evaluates an online store by connecting sales, product ratings, brand performance, inventory availability and discount activity. Funnel visuals and product-level comparisons help reveal where commercial opportunities exist and where the shopping experience may be losing value.</p><p>The analysis covers 991 products and 125K units sold. Clothing contributed $1.72M (43%) and home products $1.14M (29%). Discounts above 20% were associated with weaker sales in the source analysis. Inventory included 23 out-of-stock products, alongside items available for delivery and pickup.</p><div class="stage"><div class="stage-title">Recommendations</div> Prioritize the strongest product categories and brands, investigate low-rated products, replenish unavailable items, and review the impact of discount levels before applying promotions. Highlight highly rated products while monitoring fulfilment options.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>يقيّم هذا المشروع باستخدام Power BI أداء متجر إلكتروني من خلال ربط المبيعات وتقييمات المنتجات وأداء العلامات التجارية وتوافر المخزون وتأثير الخصومات. وتساعد المخططات القمعية والمقارنات على مستوى المنتج في كشف الفرص التجارية ومواطن الضعف المحتملة في تجربة التسوق.</p><p>يشمل التحليل 991 منتجاً وبيع 125 ألف وحدة. وساهمت الملابس بـ1.72 مليون دولار (43%)، والمنتجات المنزلية بـ1.14 مليون دولار (29%). وأشار التحليل الأصلي إلى ارتباط الخصومات التي تتجاوز 20% بأداء مبيعات أضعف. كما رُصدت 23 سلعة غير متوفرة في المخزون، إلى جانب منتجات متاحة للتوصيل والاستلام.</p><div class="stage"><div class="stage-title">التوصيات</div> إعطاء الأولوية للفئات والعلامات التجارية الأقوى، ومراجعة المنتجات منخفضة التقييم، وإعادة توفير السلع غير المتاحة، ودراسة أثر مستويات الخصم قبل إطلاق العروض. كما يُوصى بإبراز المنتجات ذات التقييمات المرتفعة ومتابعة كفاءة خيارات التوصيل والاستلام.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/prdlBJYNqig?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=prdlBJYNqig" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="domain-section">
+<div class="domain-header">
+<h2>Financial</h2>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Income Statement Dashboard</h1>
+<div class="english-text"><p>This dashboard translates income-statement data into a visual view of revenue, cost of goods, expenses, taxes and net profit. The Power BI report is intended to help users compare periods, understand changes in profitability and identify areas that may require closer financial review.</p><p>Reported sales increased to $102,540 from $36,370 in the prior year. Cost of goods decreased to $9,870 from $13,030. Net profit reached $74,860, compared with $4,690 previously, and the West division recorded a 57.69% profit margin.</p><div class="stage"><div class="stage-title">Recommendations</div> Continue monitoring cost of goods and operating expenses, investigate the drivers behind the reported profit increase, and review the West division's practices for possible replication. Examine tax and interest costs with qualified finance professionals.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تحوّل لوحة التحكم بيانات قائمة الدخل إلى عرض بصري للإيرادات وتكلفة البضائع والمصروفات والضرائب وصافي الربح. ويهدف تقرير Power BI إلى تسهيل مقارنة الفترات، وفهم التغيرات في الربحية، وتحديد البنود التي تحتاج إلى مراجعة مالية أعمق.</p><p>ارتفعت المبيعات المسجلة إلى 102,540 دولاراً مقارنة بـ36,370 دولاراً في العام السابق. وانخفضت تكلفة البضائع إلى 9,870 دولاراً بعد أن كانت 13,030 دولاراً. وبلغ صافي الربح 74,860 دولاراً مقابل 4,690 دولاراً سابقاً، كما سجلت المنطقة الغربية هامش ربح قدره 57.69%.</p><div class="stage"><div class="stage-title">التوصيات</div> مواصلة متابعة تكلفة البضائع والمصروفات التشغيلية، والتحقق من العوامل التي أدت إلى الزيادة المسجلة في الأرباح، ودراسة ممارسات المنطقة الغربية للاستفادة مما يمكن تطبيقه في المناطق الأخرى. كما ينبغي مراجعة تكاليف الضرائب والفوائد مع مختصين ماليين.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/1592LLIVKeg?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=1592LLIVKeg" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Financial Insights Tracker</h1>
+<div class="english-text"><p>This Power BI report combines financial and operational indicators to help monitor sales, profit, discounts, markets and historical performance. KPI cards and gauge-style visuals provide a high-level view, while comparisons help identify segments that are contributing to growth or reducing profitability.</p><p>Sales reached $92.31M, compared with $56.24M in the previous year, and reported profit reached $13.02M. The USA contributed $24.9M in sales. Channel Partners recorded a 27.78% profit margin, while Enterprise and Montana showed negative margins in the source analysis.</p><div class="stage"><div class="stage-title">Recommendations</div> Protect profitability by reviewing loss-making segments, reassessing discount policies, and studying the historical periods with stronger results. Continue developing high-performing markets and products, while validating the drivers behind each KPI.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>يجمع تقرير Power BI المؤشرات المالية والتشغيلية لمتابعة المبيعات والأرباح والخصومات والأسواق والأداء التاريخي. وتوفر بطاقات مؤشرات الأداء والرسوم الشبيهة بالعدادات نظرة عامة سريعة، بينما تساعد المقارنات على تحديد الشرائح التي تدعم النمو أو تضغط على الربحية.</p><p>بلغت المبيعات 92.31 مليون دولار مقارنة بـ56.24 مليون دولار في العام السابق، ووصلت الأرباح المسجلة إلى 13.02 مليون دولار. وساهمت الولايات المتحدة بمبيعات قدرها 24.9 مليون دولار. وحقق قطاع Channel Partners هامش ربح 27.78%، بينما سجل قطاعا Enterprise وMontana هوامش سالبة وفق التحليل الأصلي.</p><div class="stage"><div class="stage-title">التوصيات</div> حماية الربحية من خلال مراجعة القطاعات الخاسرة وإعادة تقييم سياسة الخصومات ودراسة الفترات التاريخية ذات الأداء الأقوى. مع مواصلة تطوير الأسواق والمنتجات المتميزة والتحقق من العوامل المؤثرة في كل مؤشر أداء.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/pR7ev1yuhuo?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=pR7ev1yuhuo" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="domain-section">
+<div class="domain-header">
+<h2>Real Estate</h2>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Real-estate Development Dashboard</h1>
+<div class="english-text"><p>This dashboard analyzes CRM and sales information for a real-estate development business. Regional maps and client-level views are used to track revenue trends, compare territories and identify the customers and discount patterns that have the greatest influence on results.</p><p>The source analysis reports revenue of $18.13M in 2023, followed by $4.67M in 2024 and a 26% growth rebound in 2025. The West region led with $26.62M, and Atlas Construction Group contributed $31.46M. High discounting—reported at 44%—was identified as a profitability concern.</p><div class="stage"><div class="stage-title">Recommendations</div> Build on relationships with major clients while reviewing customer concentration, investigate the 2024 revenue decline and the reported February loss, and reassess discount levels. Develop focused plans for regions with weaker results.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تحلل لوحة التحكم بيانات إدارة علاقات العملاء والمبيعات لنشاط تطوير عقاري. وتُستخدم الخرائط الإقليمية وطرق العرض على مستوى العميل لمتابعة اتجاهات الإيرادات ومقارنة المناطق وتحديد العملاء وأنماط الخصم الأكثر تأثيراً في النتائج.</p><p>يشير التحليل الأصلي إلى إيرادات بلغت 18.13 مليون دولار في 2023، ثم 4.67 مليون دولار في 2024، تلاها تعافٍ في النمو بنسبة 26% في 2025. وتصدرت المنطقة الغربية بقيمة 26.62 مليون دولار، بينما ساهمت Atlas Construction Group بـ31.46 مليون دولار. كما عُدّ ارتفاع الخصومات إلى 44% مصدر قلق بشأن الربحية.</p><div class="stage"><div class="stage-title">التوصيات</div> تعزيز العلاقات مع العملاء الرئيسيين مع مراجعة مخاطر الاعتماد على عدد محدود منهم، والتحقق من أسباب تراجع الإيرادات في 2024 والخسارة المسجلة في فبراير، وإعادة تقييم مستويات الخصم. كما يُوصى بوضع خطط موجهة للمناطق ذات الأداء الأضعف.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/62yjpAHsLzY?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=62yjpAHsLzY" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Real-estate Prices in Saudi Arabia Dashboard</h1>
+<div class="english-text"><p>This project explores rental-market data across Jeddah, Riyadh, Dammam and Khobar. The Power BI dashboard uses geographic views, filters and city comparisons to help users examine differences in rental levels and changes over time across the four markets.</p><p>The dataset contains 3,718 property records. The reported average rents were SAR 112,882 in Jeddah, SAR 94,292 in Riyadh, SAR 63,282 in Dammam and SAR 79,483 in Khobar. The source analysis also notes upward price trends in Riyadh and Jeddah since 2013.</p><div class="stage"><div class="stage-title">Recommendations</div> Compare cities using consistent property types and time periods before making investment decisions. Consider location, infrastructure and property characteristics alongside average rent, and refresh the dataset regularly to keep the analysis relevant.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>يستكشف هذا المشروع بيانات سوق الإيجارات في جدة والرياض والدمام والخبر. وتستخدم لوحة Power BI الخرائط الجغرافية والفلاتر والمقارنات بين المدن لمساعدة المستخدم على دراسة اختلاف مستويات الإيجار وتغيرها بمرور الوقت في الأسواق الأربعة.</p><p>تضم مجموعة البيانات 3,718 سجلاً عقارياً. وبلغ متوسط الإيجار المسجل 112,882 ريالاً في جدة، و94,292 ريالاً في الرياض، و63,282 ريالاً في الدمام، و79,483 ريالاً في الخبر. كما يشير التحليل الأصلي إلى اتجاه تصاعدي للأسعار في الرياض وجدة منذ عام 2013.</p><div class="stage"><div class="stage-title">التوصيات</div> مقارنة المدن باستخدام أنواع عقارات وفترات زمنية متسقة قبل اتخاذ قرارات استثمارية. وينبغي مراعاة الموقع والبنية التحتية وخصائص العقار إلى جانب متوسط الإيجار، مع تحديث البيانات بانتظام للحفاظ على ملاءمة التحليل.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube.com/embed/YxttuwQRih8?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=YxttuwQRih8" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="domain-section">
+<div class="domain-header">
+<h2>Operations</h2>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Crane Service Provider Dashboard</h1>
+<div class="english-text"><p>This operational dashboard brings together workforce attendance, customer orders, supplier performance, equipment availability and project delivery. In Power BI, schedule-oriented visuals and heatmaps help managers identify bottlenecks and understand how operational issues affect service execution.</p><p>The source analysis reports workforce attendance of 36%, delivery of 54 out of 100 orders, supplier errors of 48% and equipment downtime of 64%, with $4,000 in repair costs. A positive finding was that 39 projects were completed without safety incidents.</p><div class="stage"><div class="stage-title">Recommendations</div> Prioritize attendance and workforce planning, work with suppliers to reduce errors and late deliveries, and introduce a structured preventive-maintenance review. Preserve and share the safety practices associated with incident-free project delivery.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>تجمع لوحة التحكم التشغيلية بيانات حضور القوى العاملة وطلبات العملاء وأداء الموردين وتوافر المعدات وتسليم المشاريع. وتساعد الرسوم المرتبطة بالجداول الزمنية والخرائط الحرارية في Power BI المديرين على تحديد الاختناقات وفهم أثر المشكلات التشغيلية في تنفيذ الخدمات.</p><p>يسجل التحليل الأصلي حضوراً للقوى العاملة بنسبة 36%، وتسليم 54 طلباً من أصل 100، وأخطاء للموردين بنسبة 48%، وتوقفاً للمعدات بنسبة 64%، مع تكاليف إصلاح بلغت 4,000 دولار. ومن النتائج الإيجابية إكمال 39 مشروعاً دون حوادث سلامة.</p><div class="stage"><div class="stage-title">التوصيات</div> إعطاء الأولوية لتحسين الحضور وتخطيط القوى العاملة، والعمل مع الموردين لتقليل الأخطاء وتأخر التسليم، واعتماد مراجعة منظمة للصيانة الوقائية. كما يُوصى بالحفاظ على ممارسات السلامة التي ارتبطت بإكمال المشاريع دون حوادث وتعميمها.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube.com/embed/vj1AFfD6neQ?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=vj1AFfD6neQ" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="domain-section">
+<div class="domain-header">
+<h2>Business Analysis</h2>
+</div>
+<div class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>AD Works Analysis</h1>
+<div class="english-text"><p>This Power BI analysis reviews financial and operational performance across sales regions, reseller channels, product categories and seasonal patterns. KPI cards and trend comparisons help show where revenue is concentrated, which products are gaining or losing momentum, and where margins need attention.</p><p>The source analysis reports $78M in revenue, with the Middle East contributing $42.6M. Specialty Bike Shops generated $31.7M across 27,000 transactions. Oman and Tunisia recorded negative margins, while Half-Finger Gloves grew 25.95% and Cable Lock declined 12%. Active resellers decreased from 555 in 2019 to 453 in 2022.</p><div class="stage"><div class="stage-title">Recommendations</div> Strengthen relationships with the best-performing reseller channel, investigate cost and margin pressure in Oman and Tunisia, and review the product mix. Re-engage inactive resellers and plan campaigns around the stronger seasonal periods identified in the analysis.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><p>يراجع هذا التحليل باستخدام Power BI الأداء المالي والتشغيلي عبر مناطق المبيعات وقنوات الموزعين وفئات المنتجات والأنماط الموسمية. وتوضح بطاقات مؤشرات الأداء ومقارنات الاتجاهات أماكن تركز الإيرادات، والمنتجات التي تحقق نمواً أو تراجعاً، والمناطق التي تحتاج هوامشها إلى اهتمام.</p><p>يشير التحليل الأصلي إلى إيرادات قدرها 78 مليون دولار، ساهمت منطقة الشرق الأوسط منها بـ42.6 مليون دولار. وحققت متاجر الدراجات المتخصصة 31.7 مليون دولار عبر 27 ألف معاملة. وسجلت عُمان وتونس هوامش سالبة، بينما نما منتج Half-Finger Gloves بنسبة 25.95% وتراجع Cable Lock بنسبة 12%. كما انخفض عدد الموزعين النشطين من 555 في 2019 إلى 453 في 2022.</p><div class="stage"><div class="stage-title">التوصيات</div> تعزيز العلاقات مع قناة الموزعين الأعلى أداءً، والتحقق من أسباب ضغط التكاليف والهوامش في عُمان وتونس، ومراجعة مزيج المنتجات. كما يُوصى بإعادة تنشيط الموزعين غير النشطين وتخطيط الحملات حول الفترات الموسمية الأقوى التي كشفها التحليل.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube.com/embed/KppZJ-nwAxU?enablejsapi=1"></iframe>
+<div class="watch-on-youtube">
+<a href="https://www.youtube.com/watch?v=KppZJ-nwAxU" target="_blank">Watch on YouTube</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<p>© 2025 Ormita. All rights reserved.</p>
+<div class="social-links">
+<a href="mailto:ormita@zohomail.sa">Email</a>
+<a href="www.linkedin.com/in/mohamedssameer">LinkedIn</a>
+<a href="https://twitter.com">Twitter</a>
+</div>
+</footer>
+<script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-nav-links');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

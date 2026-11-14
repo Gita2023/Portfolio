@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ORMITA Analytics Solutions | AI Data Annotation Projects</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #ffffff;
+            --accent-color: #00ff88;
+            --card-bg: #161616;
+            --text-dark: #333;
+            --white-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-color), #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        .project-section {
+            padding: 8rem 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-section:nth-child(odd) {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .project-section:nth-child(even) {
+            background-color: var(--white-color);
+            color: var(--text-dark);
+        }
+
+        .project-container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .project-description {
+            margin-bottom: 4rem;
+        }
+
+        .project-description h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .english-text, .arabic-text {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+
+        .english-text {
+            direction: ltr;
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-weight: 300;
+            color: inherit;
+        }
+
+        .project-section:nth-child(odd) .arabic-text {
+            color: #ddd;
+        }
+
+        .project-section:nth-child(even) .arabic-text {
+            color: #555;
+        }
+
+        .stage {
+            margin-bottom: 1rem;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .text-divider {
+            height: 2rem;
+            width: 100px;
+            margin: 2rem auto;
+            border-bottom: 2px solid var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .project-video-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .project-video-container:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .project-video {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #00ccff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 5%;
+                background: rgba(10, 10, 10, 0.95);
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .mobile-nav-links.active {
+                display: flex;
+            }
+
+            .mobile-nav-links a {
+                color: var(--text-color);
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .project-section {
+                padding: 4rem 5%;
+            }
+
+            .project-description h1 {
+                font-size: 1.8rem;
+            }
+
+            .english-text, .arabic-text {
+                font-size: 0.95rem;
+            }
+
+            .stage-title {
+                font-size: 1rem;
+            }
+
+            .text-divider {
+                height: 1.5rem;
+                width: 80px;
+            }
+
+            .project-video {
+                height: 300px;
+            }
+        }
+    
+        /* ORMITA brand refresh: deep navy, teal and accessible contrast */
+        :root {
+            --bg-color: #071827;
+            --text-color: #f4f7fb;
+            --accent-color: #22c6b8;
+            --card-bg: #10283a;
+            --text-dark: #172b3a;
+        }
+        .arabic, .arabic-text { line-height: 1.95; }
+        .english-text { line-height: 1.8; }
+        .stage { line-height: 1.8; }
+        
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="nav-logo">ORMITA</div>
+<div class="nav-links">
+<a class="nav-link" href="index.html">Back to Home</a>
+</div>
+<div class="mobile-menu" onclick="toggleMenu()">☰</div>
+<div class="mobile-nav-links">
+<a class="nav-link" href="index.html">Back to Home</a>
+</div>
+</nav>
+<section class="hero">
+<div class="hero-content">
+<h1>Text Annotation Projects</h1>
+<p>Explore practical text-annotation examples used to prepare structured datasets for natural language processing and AI. Each example explains the annotation task, illustrates the labelling logic and shows where the resulting data can be applied.<span class="arabic-text">استكشف أمثلة عملية على وسم النصوص وإعداد مجموعات بيانات منظمة لمعالجة اللغة الطبيعية والذكاء الاصطناعي. يشرح كل مثال مهمة الوسم ومنطقه، ويوضح المجالات التي يمكن استخدام البيانات الناتجة فيها.</span></p>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Named Entity Recognition (NER)</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Identifies specific entities in unstructured text and assigns each one a consistent label, such as PERSON, ORGANIZATION or LOCATION. In the example, Label Studio is used to mark “Sarah Johnson,” “Microsoft” and “Seattle.” This structured output supports information extraction, knowledge graphs and question-answering applications.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يحدد الكيانات الواردة في النصوص ويمنح كل كيان تصنيفاً واضحاً، مثل PERSON للأشخاص وORGANIZATION للمنظمات وLOCATION للمواقع. في المثال، تُستخدم أداة Label Studio لتمييز «Sarah Johnson» و«Microsoft» و«Seattle». وتفيد هذه البيانات المنظمة في استخراج المعلومات وبناء الرسوم البيانية المعرفية وتطبيقات الإجابة عن الأسئلة.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/OngRQqetblE?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Sentiment Annotation</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Labels the emotional tone expressed in a sentence, review or message as POSITIVE, NEGATIVE or NEUTRAL. The example demonstrates assigning a positive label to a customer statement expressing satisfaction. This type of annotation helps prepare datasets for customer-feedback analysis and social-media monitoring.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يصنف النبرة العاطفية التي يعبر عنها النص أو التقييم أو الرسالة إلى POSITIVE إيجابي أو NEGATIVE سلبي أو NEUTRAL محايد. يوضح المثال إسناد تصنيف إيجابي إلى تعليق عميل يعبر عن الرضا. ويساعد هذا النوع من الوسم في إعداد بيانات لتحليل آراء العملاء ومتابعة منصات التواصل الاجتماعي.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/0f4ml8spMK4?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Part-of-Speech (POS) Tagging</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Assigns a grammatical role to each relevant word, such as NOUN, VERB, ADJECTIVE or ADVERB. In the example sentence, words such as “cat” and “jumped” receive their corresponding grammatical tags. POS-labelled data supports syntactic analysis, machine translation and language-generation workflows.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يسند إلى الكلمات أدواراً نحوية مثل NOUN الاسم وVERB الفعل وADJECTIVE الصفة وADVERB الحال. وفي المثال، تحصل كلمتا «cat» و«jumped» على التصنيفين النحويين المناسبين. وتُستخدم البيانات الموسومة بهذه الطريقة في التحليل النحوي والترجمة الآلية وأنظمة توليد اللغة.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/h_rsdGj7sKw?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Text Classification</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Assigns one or more predefined categories to an entire text based on its meaning or purpose. The example classifies a frustrated customer statement as COMPLAINT. Similar workflows can organize incoming messages into categories such as SPAM, REQUEST or SUPPORT, helping automate routing and chatbot handling.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يسند فئة أو أكثر من الفئات المحددة مسبقاً إلى النص كاملاً وفق معناه أو الغرض منه. يصنف المثال تعليق عميل غير راضٍ ضمن فئة COMPLAINT شكوى. ويمكن استخدام الأسلوب نفسه لتنظيم الرسائل إلى فئات مثل SPAM بريد مزعج أو REQUEST طلب أو SUPPORT دعم، بما يساعد على توجيه الرسائل وأتمتة المحادثات.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-classification?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Relation Extraction</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Captures meaningful connections between entities mentioned in a sentence. In “Elon Musk works at SpaceX,” the annotation links the person to the organization through the relation “works at.” These labelled relationships can support knowledge-graph creation, semantic search and structured information retrieval.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يستخرج الروابط ذات المعنى بين الكيانات المذكورة في الجملة. ففي مثال «Elon Musk works at SpaceX» يربط الوسم الشخص بالمنظمة من خلال علاقة «يعمل في». ويمكن الاستفادة من هذه العلاقات في بناء الرسوم البيانية المعرفية والبحث الدلالي واسترجاع المعلومات المنظمة.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-relation?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Semantic Annotation</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Adds context-aware meaning to words or phrases so that systems can distinguish between different interpretations. For example, “Python” can be tagged as a programming language when used in a technical context, while “moon” can be identified as a celestial body. This improves semantic search and recommendation quality.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يضيف معنى مرتبطاً بالسياق إلى الكلمات والعبارات حتى تتمكن الأنظمة من التمييز بين تفسيراتها المختلفة. فمثلاً يمكن تصنيف «Python» على أنها لغة برمجة في سياق تقني، و«moon» على أنها جرم سماوي. ويساعد ذلك على تحسين البحث الدلالي وجودة أنظمة التوصية.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-semantic?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Coreference Resolution</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Links pronouns and referring expressions to the entities they represent across a text. In “Lisa bought a car. She drove it,” the annotation connects “She” to Lisa and “it” to the car. This helps language systems maintain context in summarization, reading comprehension and question answering.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يربط الضمائر والتعبيرات الإشارية بالكيانات التي تعود إليها داخل النص. ففي مثال «Lisa bought a car. She drove it» يربط الوسم الضمير «She» بليزا والضمير «it» بالسيارة. ويساعد ذلك أنظمة اللغة على الحفاظ على سياق النص في التلخيص وفهم المقروء والإجابة عن الأسئلة.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-coreference?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Intent Annotation</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Identifies what a user is trying to accomplish through a message and assigns an intent label, such as BOOK or ASK. The example labels “Reserve a table” with the BOOK intent. Intent-labelled datasets help conversational systems understand requests and select an appropriate response or workflow.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يحدد الهدف الذي يحاول المستخدم تحقيقه من خلال رسالته، ثم يسند إليه تصنيفاً مثل BOOK للحجز أو ASK للسؤال. يصنف المثال عبارة «Reserve a table» على أنها نية حجز BOOK. وتساعد مجموعات البيانات الموسومة بالنوايا أنظمة المحادثة على فهم الطلب واختيار الاستجابة أو الإجراء المناسب.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-intent?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Dependency Parsing</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Represents the grammatical relationships between words, such as subject, object and root. In “The dog barked,” the annotation identifies “barked” as the root and “dog” as its subject. These relationships support detailed syntactic analysis and language-processing applications.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يمثل العلاقات النحوية بين الكلمات، مثل الفاعل والمفعول به والكلمة الجذرية في الجملة. ففي مثال «The dog barked» تُحدد كلمة «barked» بوصفها الجذر، وكلمة «dog» بوصفها الفاعل. وتدعم هذه العلاقات التحليل النحوي الدقيق وتطبيقات معالجة اللغة.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-dependency?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<section class="project-section">
+<div class="project-container">
+<div class="project-description">
+<h1>Text Span Annotation</h1>
+<div class="english-text"><div class="stage"><div class="stage-title">Purpose:</div> Marks the exact words or continuous text spans that contain a target concept, entity or phrase. In the example, “Artificial intelligence” and “machine learning” are highlighted as key phrases. Accurate span boundaries are important for information extraction, summarization and keyphrase identification.</div><div class="stage"><div class="stage-title">Workflow:</div> The example shown demonstrates the annotation method and the label assigned to the text.</div><div class="stage"><div class="stage-title">Use cases:</div> Supports the preparation of consistent, reviewable datasets for language-processing and AI applications.</div></div>
+<div class="text-divider"></div>
+<div class="arabic-text"><div class="stage"><div class="stage-title">الغرض:</div> يحدد بدقة الكلمات أو المقاطع النصية المتصلة التي تحتوي على مفهوم أو كيان أو عبارة مستهدفة. في المثال، يجري تمييز «Artificial intelligence» و«machine learning» باعتبارهما عبارتين أساسيتين. وتُعد دقة حدود المقاطع مهمة لاستخراج المعلومات والتلخيص وتحديد العبارات المفتاحية.</div><div class="stage"><div class="stage-title">آلية العمل:</div> يوضح المثال المعروض طريقة الوسم والتصنيف الذي يُسند إلى النص.</div><div class="stage"><div class="stage-title">الاستخدامات:</div> يساعد في إعداد مجموعات بيانات متسقة وقابلة للمراجعة لاستخدامها في معالجة اللغة وتطبيقات الذكاء الاصطناعي.</div></div>
+</div>
+<div class="project-video-container">
+<iframe allowfullscreen="" class="project-video" src="https://www.youtube-nocookie.com/embed/placeholder-span?enablejsapi=1"></iframe>
+</div>
+</div>
+</section>
+<footer>
+<p>© 2025 Ormita. All rights reserved.</p>
+<div class="social-links">
+<a href="mailto:ormita@zohomail.sa">Email</a>
+<a href="www.linkedin.com/in/mohamedssameer">LinkedIn</a>
+<a href="https://twitter.com">Twitter</a>
+</div>
+</footer>
+<script>
+        function toggleMenu() {
+            const menu = document.querySelector('.mobile-nav-links');
+            menu.classList.toggle('active');
+        }
+
+        const videos = document.querySelectorAll('.project-video');
+        
+        function checkVideosInView() {
+            videos.forEach(video => {
+                const rect = video.getBoundingClientRect();
+                const isInView = (
+                    rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+                );
+
+                if (isInView) {
+                    video.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                } else {
+                    video.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkVideosInView);
+        window.addEventListener('load', checkVideosInView);
+    </script>
+</body>
+</html>
